@@ -1,6 +1,7 @@
 /* global DEBUG */
 
 require('foundation/scss/normalize');
+require('./styles/avenir');
 require('./styles/app');
 
 import { render } from 'react';

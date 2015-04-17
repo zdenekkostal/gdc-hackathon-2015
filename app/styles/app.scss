@@ -1,4 +1,60 @@
+html, body, * {
+    font-family: Avenir, sans-serif;
+    font-weight: normal;
+}
+
 body {
     background: white url("../images/goodhack-bg.png") top center no-repeat;
     background-size: cover;
+}
+
+// components
+
+#menu {
+    text-align: center;
+
+    a {
+        display: inline-block;
+        margin-right: 25px;
+    }
+}
+
+#hello {
+    text-align: center;
+
+    h1 {
+        font-size: 60px;
+    }
+
+    img {
+        margin: 70px auto 40px;
+    }
+
+    strong span {
+        font-weight: bold;
+    }
+}
+
+// button
+
+.button {
+    background: #1fc6c6;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+// colors
+
+.color-black {
+    color: #000;
+}
+.color-green {
+    color: #1fc6c6;
+}
+.color-pink {
+    color: #f15a93;
+}
+.color-grey {
+    color: #aaa;
 }
