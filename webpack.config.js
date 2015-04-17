@@ -30,7 +30,9 @@ module.exports = function getWebpackConfig() {
 
                 {
                     test: /\.scss$/,
-                    loader: 'style!css?sourceMap!autoprefixer!sass'
+                    loader: 'style!css?sourceMap!autoprefixer!sass?' +
+                        'includePaths[]=' +
+                        (path.resolve(__dirname, 'bower_components/foundation/scss'))
                 },
 
                 {
