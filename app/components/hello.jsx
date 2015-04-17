@@ -1,12 +1,12 @@
 import { Component } from 'react';
 
-export default class Menu extends Component {
-    displayName: 'Menu'
+export default class Hello extends Component {
+    displayName: 'Hello'
 
     render() {
         return (
             <div>
-                menu
+                Hello
             </div>
         );
     }

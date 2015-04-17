@@ -1,12 +1,12 @@
 import { Component } from 'react';
 
-export default class Menu extends Component {
-    displayName: 'Menu'
+export default class Schedule extends Component {
+    displayName: 'Schedule'
 
     render() {
         return (
             <div>
-                menu
+                Schedule
             </div>
         );
     }
