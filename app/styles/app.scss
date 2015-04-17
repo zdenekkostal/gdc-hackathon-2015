@@ -3,45 +3,88 @@ html, body, * {
     font-weight: normal;
 }
 
+html, body{
+    font-size: 18px;
+}
+
 body {
+    background: white url("../images/triangle.svg") top left repeat;
+    background-size: 12%;
+
+    /*
     background: white url("../images/goodhack-bg.png") top center no-repeat;
     background-size: cover;
+    */
 }
 
 // components
 
 #menu {
+    max-width: 990px;
+    margin: 30px auto 0;
+
     text-align: center;
+    line-height: 2rem;
+
+    column-count: 2;
 
     a {
-        display: inline-block;
-        margin-right: 25px;
+        display: block;
+
+        text-transform: uppercase;
+        text-decoration: none;
+
+        color: #1c8fb9;
+
+        &:hover {
+            color: black;
+            text-decoration: underline;
+        }
+    }
+}
+
+@media screen and (min-width: 30em){
+    #menu {
+        column-count: 3;
+    }
+}
+
+@media screen and (min-width: 55em){
+    #menu {
+        column-count: 6;
     }
 }
 
 #hello {
     text-align: center;
 
+    font-size: 22px;
+
     h1 {
         font-size: 60px;
+        margin-bottom: 0.7rem;
     }
 
     img {
         margin: 70px auto 40px;
     }
 
-    strong span {
-        font-weight: bold;
+    button {
+        margin-top: 65px;
     }
 }
 
 // button
 
 .button {
+    padding: 10px 50px;
     background: #1fc6c6;
+
+    border: 0;
+    border-radius: 5px;
+
     color: white;
-    padding: 5px;
-    border-radius: 4px;
+    font-size: 24px;
 }
 
 // colors

@@ -42,7 +42,7 @@ module.exports = function getWebpackConfig() {
 
                 // https://msdn.microsoft.com/en-us/library/cc848897(v=vs.85).aspx
                 {
-                    test: /\.(png|svg)$/,
+                    test: /\.(png)$/,
                     loader: 'url-loader?limit=32768&mimetype=image/png'
                 },
 

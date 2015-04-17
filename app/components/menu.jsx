@@ -5,7 +5,7 @@ export default class Menu extends Component {
 
     render() {
         return (
-            <div>
+            <div id="menu">
             {this.props.items.map(function (item, i) {
                 return (
                     <a href="#">{item}</a>
