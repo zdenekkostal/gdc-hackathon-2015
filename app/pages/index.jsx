@@ -12,11 +12,23 @@ import Awards from '../components/awards';
 export default class Index extends Component {
     displayName: 'Index'
 
+    constructor () {
+        this.state = {
+            menu: [
+                'Hello',
+                'About',
+                'Schedule',
+                'Social',
+                'Projects',
+                'Awards'
+            ]
+        }
+    }
+
     render() {
         return (
             <div>
-                index
-                <Menu />
+                <Menu items={this.state.menu} />
 
                 <Hello />
                 <About />
