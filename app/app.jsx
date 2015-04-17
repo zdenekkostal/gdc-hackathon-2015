@@ -1,11 +1,14 @@
+/* global DEBUG */
+
 require('./styles/app');
 
-import Button from './components/button';
+import { render } from 'react';
+import { run } from 'react-router';
+import routes from './routes';
 
-React.render(
-    <Button value="Hello world" />,
-    document.getElementById('app')
-);
+run(routes, function(Handler) {
+    render(<Handler />, document.getElementById('app'));
+});
 
 if (DEBUG) {
     console.log('dev');
