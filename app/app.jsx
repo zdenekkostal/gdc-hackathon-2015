@@ -3,6 +3,7 @@
 require('foundation/scss/normalize');
 require('./styles/avenir');
 require('./styles/app');
+require('./styles/triangles');
 
 import { render } from 'react';
 import { run } from 'react-router';

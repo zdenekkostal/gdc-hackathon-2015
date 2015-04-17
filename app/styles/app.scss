@@ -1,9 +1,10 @@
 html, body, * {
     font-family: Avenir, sans-serif;
     font-weight: normal;
+    transition: all 0.5s;
 }
 
-html, body{
+html, body {
     font-size: 18px;
 }
 
@@ -17,11 +18,25 @@ body {
     */
 }
 
+// app
+
+#app {
+    position: relative;
+
+    // for testing only - REMOVE !!!
+    min-height: 3000px;
+    margin: 0 auto;
+
+    // triangles can overflow
+    overflow: hidden;
+}
+
 // components
 
 #menu {
-    max-width: 990px;
-    margin: 30px auto 0;
+    max-width: 850px;
+    padding-top: 30px;
+    margin: 0 auto;
 
     text-align: center;
     line-height: 2rem;
@@ -56,21 +71,51 @@ body {
 }
 
 #hello {
+    position: relative;
+    z-index: 1;
+
     text-align: center;
 
-    font-size: 22px;
+    font-size: 16px;
 
     h1 {
-        font-size: 60px;
+        font-size: 28px;
         margin-bottom: 0.7rem;
     }
 
     img {
+        display: none;
         margin: 70px auto 40px;
     }
 
     button {
         margin-top: 65px;
+    }
+}
+
+@media screen and (min-width: 30em) {
+    #hello h1 {
+        font-size: 35px;
+    }
+}
+
+@media screen and (min-width: 40em) {
+    #hello img {
+        display: block;
+    }
+
+    #hello h1 {
+        font-size: 45px;
+    }
+}
+
+@media screen and (min-width: 55em){
+    #hello {
+        font-size: 22px;
+    }
+
+    #hello h1 {
+        font-size: 60px;
     }
 }
 

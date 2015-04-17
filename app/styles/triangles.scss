@@ -1,0 +1,96 @@
+@mixin triangle() {
+    transition: none;
+    display: inline-block;
+
+    position: absolute;
+
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+
+	width: 0;
+	height: 0;
+}
+
+#triangles {
+    z-index: -1;
+}
+
+@media screen and (max-width: 55em){
+    #triangles {
+        transform: scale(0.65);
+        transform-origin: 0 0 0;
+    }
+}
+
+@media screen and (max-width: 40em){
+    #triangles {
+        transform: scale(0.25);
+        transform-origin: 0 0 0;
+    }
+}
+
+.tri-1 {
+    @include triangle();
+
+    left: 65px;
+    top: 55px;
+
+    border-left: 105px solid rgba(28, 143, 185, 0.75);
+}
+
+.tri-2 {
+    @include triangle();
+
+    left: -40px;
+    top: 0px;
+
+    border-right: 105px solid rgba(28, 143, 185, 0.25);
+}
+
+.tri-p-1 {
+    @include triangle();
+
+    left: 160px;
+    top: 400px;
+
+    border-top: 90px solid transparent;
+    border-bottom: 90px solid transparent;
+
+    border-right: 160px solid rgba(238, 93, 146, 1);
+}
+
+.tri-p-2 {
+    @include triangle();
+
+    left: 160px;
+    top: 380px;
+
+    border-top: 90px solid transparent;
+    border-bottom: 90px solid transparent;
+
+    border-left: 160px solid rgba(238, 93, 146, 0.5);
+}
+
+.tri-p-3 {
+    @include triangle();
+
+    left: 55px;
+    top: 469px;
+
+    border-top: 150px solid transparent;
+    border-bottom: 150px solid transparent;
+
+    border-right: 265px solid rgba(238, 93, 146, 0.35);
+}
+
+.tri-g-1 {
+    @include triangle();
+
+    left: 0px;
+    top: 315px;
+
+    border-top: 1000px solid transparent;
+    border-bottom: 1000px solid transparent;
+
+    border-left: 2000px solid rgba(145, 143, 140, 0.07);
+}
