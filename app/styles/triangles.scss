@@ -1,35 +1,68 @@
-@mixin triangle() {
+@mixin triangle($border-width: 60px) {
     transition: none;
     display: inline-block;
 
     position: absolute;
 
-    border-top: 60px solid transparent;
-    border-bottom: 60px solid transparent;
+    border-top: $border-width solid transparent;
+    border-bottom: $border-width solid transparent;
 
 	width: 0;
 	height: 0;
 }
 
 #triangles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: -1;
 }
 
-@media screen and (max-width: 55em){
-    #triangles {
+.triangles-left,
+.triangles-right {
+    position: absolute;
+    top: 0;
+}
+
+.triangles-left {
+    left: 0;
+    transform-origin: top left;
+}
+.triangles-right {
+    right: 0;
+    transform-origin: top right;
+}
+
+@media screen and (max-width: 60em){
+    .triangles-left,
+    .triangles-right {
+        transform: scale(0.90);
+    }
+}
+
+@media screen and (max-width: 50em){
+    .triangles-left,
+    .triangles-right {
         transform: scale(0.65);
-        transform-origin: 0 0 0;
     }
 }
 
 @media screen and (max-width: 40em){
-    #triangles {
-        transform: scale(0.25);
-        transform-origin: 0 0 0;
+    .triangles-left,
+    .triangles-right {
+        transform: scale(0.45);
     }
 }
 
-.tri-1 {
+@media screen and (max-width: 30em){
+    .triangles-left,
+    .triangles-right {
+        transform: scale(0.15);
+    }
+}
+
+.tri-l-1 {
     @include triangle();
 
     left: 65px;
@@ -38,7 +71,7 @@
     border-left: 105px solid rgba(28, 143, 185, 0.75);
 }
 
-.tri-2 {
+.tri-l-2 {
     @include triangle();
 
     left: -40px;
@@ -48,49 +81,120 @@
 }
 
 .tri-p-1 {
-    @include triangle();
+    @include triangle(90px);
 
     left: 160px;
     top: 400px;
-
-    border-top: 90px solid transparent;
-    border-bottom: 90px solid transparent;
 
     border-right: 160px solid rgba(238, 93, 146, 1);
 }
 
 .tri-p-2 {
-    @include triangle();
+    @include triangle(90px);
 
     left: 160px;
     top: 380px;
-
-    border-top: 90px solid transparent;
-    border-bottom: 90px solid transparent;
 
     border-left: 160px solid rgba(238, 93, 146, 0.5);
 }
 
 .tri-p-3 {
-    @include triangle();
+    @include triangle(150px);
 
     left: 55px;
     top: 469px;
 
-    border-top: 150px solid transparent;
-    border-bottom: 150px solid transparent;
-
     border-right: 265px solid rgba(238, 93, 146, 0.35);
 }
 
+.tri-p-4 {
+    @include triangle(265px);
+    z-index: 2;
+
+    left: 0px;
+    top: 2445px;
+
+    border-left: 400px solid rgba(238, 93, 146, 0.5);
+}
+
+.tri-g-2 {
+    @include triangle(1000px);
+
+    left: 0px;
+    top: 3980px;
+
+    border-left: 2000px solid #404040;
+}
+
 .tri-g-1 {
-    @include triangle();
+    @include triangle(1000px);
 
     left: 0px;
     top: 315px;
 
-    border-top: 1000px solid transparent;
-    border-bottom: 1000px solid transparent;
+    border-left: 2000px solid rgba(145, 143, 140, 0.1);
+}
 
-    border-left: 2000px solid rgba(145, 143, 140, 0.07);
+.tri-r-1 {
+    @include triangle(90px);
+
+    right: 170px;
+    top: 690px;
+
+    border-left: 150px solid rgba(93, 193, 196, 1);
+}
+
+.tri-r-2 {
+    @include triangle(45px);
+
+    right: 170px;
+    top: 780px;
+
+    border-right: 80px solid rgba(93, 193, 196, .5);
+}
+
+.tri-r-3 {
+    @include triangle(265px);
+
+    right: 0px;
+    top: 630px;
+
+    border-right: 475px solid rgba(238, 93, 146, 1);
+}
+
+.tri-r-4 {
+    @include triangle(90px);
+
+    right: 150px;
+    top: 4255px;
+
+    border-left: 150px solid rgba(93, 193, 196, 1);
+}
+
+.tri-r-5 {
+    @include triangle(45px);
+
+    right: 300px;
+    top: 4255px;
+
+    border-right: 90px solid rgba(93, 193, 196, .5);
+}
+
+.tri-r-big {
+    position: absolute;
+    right: 0px;
+    top: 1050px;
+    height: 2400px;
+    width: 1750px;
+
+    background: -webkit-gradient(linear, left top, left bottom,
+        color-stop(0%, rgb(20, 107, 139)),
+        color-stop(35%, rgb(2, 25, 79)),
+        color-stop(50%, #000),
+        color-stop(65%, rgb(61, 35, 85)),
+        color-stop(90%, rgb(237, 118, 101)),
+        color-stop(100%, rgb(243, 199, 136))
+    );
+
+    clip-path: polygon(0 50%, 100% 100%, 100% 0);
 }

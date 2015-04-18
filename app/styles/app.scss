@@ -1,7 +1,6 @@
 html, body, * {
     font-family: Avenir, sans-serif;
     font-weight: normal;
-    transition: all 0.5s;
 }
 
 html, body {
@@ -24,7 +23,7 @@ body {
     position: relative;
 
     // for testing only - REMOVE !!!
-    min-height: 3000px;
+    min-height: 6000px;
     margin: 0 auto;
 
     // triangles can overflow
@@ -55,6 +54,12 @@ body {
             color: black;
             text-decoration: underline;
         }
+    }
+}
+
+@media screen and (max-width: 30em){
+    #menu {
+        margin-bottom: 50px;
     }
 }
 
@@ -130,6 +135,13 @@ body {
 
     color: white;
     font-size: 24px;
+
+    transition: 1s all;
+
+    &:hover {
+        background: #19A3A3;
+        transform: scale(1.2);
+    }
 }
 
 // colors
