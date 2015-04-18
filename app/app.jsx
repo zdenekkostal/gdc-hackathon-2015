@@ -1,6 +1,8 @@
 /* global DEBUG */
 
 require('foundation/scss/normalize');
+require('foundation/scss/foundation/components/_grid');
+
 require('./styles/avenir');
 require('./styles/app');
 require('./styles/triangles');
