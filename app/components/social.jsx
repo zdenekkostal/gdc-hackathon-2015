@@ -5,7 +5,7 @@ export default class Social extends Component {
 
     render() {
         return (
-            <div>
+            <div id="social">
                 Social
             </div>
         );

@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import ScrollTo from './scrollTo';
 
 export default class Menu extends Component {
     displayName: 'Menu'
@@ -6,11 +7,13 @@ export default class Menu extends Component {
     render() {
         return (
             <div id="menu">
-            {this.props.items.map(function (item, i) {
-                return (
-                    <a href="#">{item}</a>
-                )
-            })}
+                {this.props.items.map((item) => {
+                    return (
+                        <ScrollTo target={item.id}>
+                            {item.title}
+                        </ScrollTo>
+                    );
+                })}
             </div>
         );
     }

@@ -15,17 +15,17 @@ import Triangles from '../components/triangles';
 export default class Index extends Component {
     displayName: 'Index'
 
-    constructor () {
+    constructor() {
         this.state = {
             menu: [
-                'Hello',
-                'About',
-                'Schedule',
-                'Social',
-                'Projects',
-                'Awards'
+                { title: 'Hello', id: 'hello'},
+                { title: 'About', id: 'about'},
+                { title: 'Schedule', id: 'schedule'},
+                { title: 'Social', id: 'social'},
+                { title: 'Projects', id: 'projects'},
+                { title: 'Awards', id: 'awards'}
             ]
-        }
+        };
     }
 
     render() {

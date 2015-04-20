@@ -19,7 +19,6 @@ export default class Hello extends Component {
                 <p>
                     <button className="button">Sign up</button>
                 </p>
-
             </div>
         );
     }

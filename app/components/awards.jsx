@@ -5,7 +5,7 @@ export default class Awards extends Component {
 
     render() {
         return (
-            <div>
+            <div id="awards">
                 Awards
             </div>
         );

@@ -13,7 +13,7 @@ export default class About extends Component {
                 {name: 'Jaroslav Gergič', image: 'jarda'},
                 {name: 'Kristy Marcinová', image: 'kristy'}
             ]
-        }
+        };
     }
 
     render() {
