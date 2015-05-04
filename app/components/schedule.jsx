@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { FormattedTime } from 'react-intl';
 
 let Schedule = class Schedule extends Component {
     displayName: 'Schedule'
@@ -40,7 +41,7 @@ let Schedule = class Schedule extends Component {
     renderEvent(event) {
         return (
             <tr>
-                <td>{event.time && event.time.toString()}</td>
+                <td>{event.time && <FormattedTime value={event.time} units="hour" hour="numeric" minute="numeric" locales={this.props.locales} />}</td>
                 <td>{event.description}</td>
             </tr>
         );

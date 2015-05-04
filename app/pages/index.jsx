@@ -11,8 +11,13 @@ import Awards from '../components/awards';
 
 import Triangles from '../components/triangles';
 
+// TODO: fix this shit
+import ReactIntl from 'react-intl';
+window.ReactIntl = ReactIntl;
 
-export default class Index extends Component {
+import { cs } from 'react-intl/dist/locale-data/cs';
+
+let Index = class Index extends Component {
     displayName: 'Index'
 
     constructor() {
@@ -24,7 +29,9 @@ export default class Index extends Component {
                 { title: 'Social', id: 'social'},
                 { title: 'Projects', id: 'projects'},
                 { title: 'Awards', id: 'awards'}
-            ]
+            ],
+
+            locales: this.getLocales()
         };
     }
 
@@ -37,11 +44,25 @@ export default class Index extends Component {
 
                 <Hello />
                 <About />
-                <Schedule />
+                <Schedule locales={this.state.locales} />
                 <Social />
                 <Projects />
                 <Awards />
             </div>
         );
     }
+
+    getLocales() {
+        return this.isCz() ? ['cs-CZ'] : ['en-US'];
+    }
+
+    isCz() {
+        return this.currentTimeZoneOffset() === -120;
+    }
+
+    currentTimeZoneOffset() {
+        return (new Date()).getTimezoneOffset();
+    }
 };
+
+export default Index;
