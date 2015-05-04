@@ -1,13 +1,61 @@
 import { Component } from 'react';
 
-export default class Projects extends Component {
+let Projects = class Projects extends Component {
     displayName: 'Projects'
 
     render() {
+        const projects = this.props.projects.map(this.renderProject.bind(this));
+
         return (
-            <div id="projects">
-                Projects
+            <div id="projects" className="row">
+                <h2>Projects</h2>
+                <p>Register your team for the hackathon into the table below. Please note that the registration is essential as the organisational team can supply you adequately.</p>
+                <p>Be sure to support your favorite projects by likinf them!</p>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Project name</th>
+                            <th>Teammates</th>
+                            <th>Origin</th>
+                            <th>Likes</th>
+                        </tr>
+
+                        {projects}
+                    </tbody>
+                </table>
+
+                <button>Add your own!</button>
             </div>
         );
     }
+
+    renderProject(project) {
+        return (
+            <tr>
+                <td><a href={project.uri}>{project.name}</a></td>
+                <td>{project.teammates.join(', ')}</td>
+                <td>{project.origin}</td>
+                <td>{project.likes}</td>
+            </tr>
+        );
+    }
 };
+
+Projects.defaultProps = {
+    projects: [{
+        name: 'GoodCraft',
+        uri: 'https://github.com/gooddata/gdc-client',
+        teammates: ['Bob Koutsky'],
+        origin: 'US',
+        likes: 23
+    }, {
+        name: 'GoodCraft 2',
+        uri: 'https://github.com/gooddata/gdc-client',
+        teammates: ['Bob Koutsky'],
+        origin: 'US',
+        likes: 23
+    }]
+};
+
+export default Projects;
