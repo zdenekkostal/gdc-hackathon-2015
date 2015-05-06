@@ -20,22 +20,31 @@ let Schedule = class Schedule extends Component {
 
     render() {
         const schedule = this.props.schedule[this.state.locale].map(this.renderDay.bind(this));
+        const localeSwitcher = ['en-US', 'cs-CZ'].map(this.renderLocaleSwitch.bind(this));
 
         return (
             <div id="schedule" className="row">
-                <div className="columns show-for-medium-up medium-6">
+                <div className="columns show-for-medium-up medium-4">
                     <img src="app/images/schedule.png" />
                 </div>
 
-                <div className="columns small-12 medium-6">
-                    <h2>Schedule
-                        <div className="locale-switch" data-locale="en-US" onClick={this.switchLocale.bind(this)}>US</div>
-                        <div className="locale-switch" data-locale="cs-CZ" onClick={this.switchLocale.bind(this)}>CZ</div>
-                    </h2>
+                <div className="columns small-12 medium-8">
+                    <h2>Schedule {localeSwitcher}</h2>
 
                     {schedule}
                 </div>
             </div>
+        );
+    }
+
+    renderLocaleSwitch(item) {
+        var locale = item.substr(-2, 2);
+        var classes = "locale-switch";
+
+        if (this.state.locale === item) classes += " active";
+
+        return (
+            <div className={classes} data-locale={item} onClick={this.switchLocale.bind(this)}>{locale}</div>
         );
     }
 
@@ -72,90 +81,122 @@ Schedule.defaultProps = {
             day: 'Thursday',
 
             events: [{
-                time: new Date(2015, 4, 20, 17),
-                description: 'Registration & Warm up'
-            }, {
-                time: new Date(2015, 4, 20, 18),
-                description: 'Dinner'
-            }, {
-                time: new Date(2015, 4, 20, 18),
-                description: 'All hands'
+                time: new Date(2015, 4, 14, 9),
+                description: 'Kick Off (Breakfast)'
             }, {
                 description: 'Hacking'
             }, {
-                time: new Date(2015, 4, 20, 22),
-                description: 'Late snack'
+                time: new Date(2015, 4, 14, 12),
+                description: 'Lunch'
             }, {
                 description: 'Hacking'
             }, {
-                time: new Date(2015, 4, 21, 3),
-                description: 'GoodNight'
+                time: new Date(2015, 4, 14, 15, 30),
+                description: 'Fun Event'
+            }, {
+                description: 'Hacking'
+            }, {
+                time: new Date(2015, 4, 14, 18),
+                description: 'Dinner, Sync with US'
+            }, {
+                description: 'Hacking'
+            }, {
+                time: new Date(2015, 4, 14, 21),
+                description: 'Wake up activity'
             }]
         }, {
             day: 'Friday',
 
             events: [{
-                time: new Date(2015, 4, 21, 8, 30),
+                time: new Date(2015, 4, 15, 0, 30),
+                description: 'Night Office Run?'
+            }, {
+                description: 'Hacking'
+            }, {
+                time: new Date(2015, 4, 15, 8),
+                description: 'Morning workout'
+            }, {
+                time: new Date(2015, 4, 15, 9),
                 description: 'Breakfast'
             }, {
-                time: new Date(2015, 4, 21, 12),
+                description: 'Hacking'
+            }, {
+                time: new Date(2015, 4, 15, 11),
+                description: 'Fun Event'
+            }, {
+                description: 'Hacking'
+            }, {
+                time: new Date(2015, 4, 15, 12),
                 description: 'Lunch'
             }, {
                 description: 'Hacking'
             }, {
-                time: new Date(2015, 4, 21, 18),
-                description: 'Dinner'
+                time: new Date(2015, 4, 15, 17),
+                description: 'Final'
             }, {
-                time: new Date(2015, 4, 21, 19),
-                description: 'Presentations'
-            }, {
-                time: new Date(2015, 4, 21, 20),
-                description: 'Afterparty'
+                time: new Date(2015, 4, 15, 18),
+                description: 'Send the Video CZ Teams & Food, Sync with US'
             }]
         }],
         'en-US': [{
-            day: 'US Thursday',
+            day: 'Thursday',
 
             events: [{
-                time: new Date(2015, 4, 20, 17),
-                description: 'Registration & Warm up'
-            }, {
-                time: new Date(2015, 4, 20, 18),
-                description: 'Dinner'
-            }, {
-                time: new Date(2015, 4, 20, 18),
-                description: 'All hands'
+                time: new Date(2015, 4, 14, 9),
+                description: 'Kick off US (Breakfast), Sync with CZ'
             }, {
                 description: 'Hacking'
             }, {
-                time: new Date(2015, 4, 20, 22),
-                description: 'Late snack'
-            }, {
-                description: 'Hacking'
-            }, {
-                time: new Date(2015, 4, 21, 3),
-                description: 'GoodNight'
-            }]
-        }, {
-            day: 'US Friday',
-
-            events: [{
-                time: new Date(2015, 4, 21, 8, 30),
-                description: 'Breakfast'
-            }, {
-                time: new Date(2015, 4, 21, 12),
+                time: new Date(2015, 4, 14, 12),
                 description: 'Lunch'
             }, {
                 description: 'Hacking'
             }, {
-                time: new Date(2015, 4, 21, 18),
+                time: new Date(2015, 4, 14, 15, 30),
+                description: 'Fun Event'
+            }, {
+                description: 'Hacking'
+            }, {
+                time: new Date(2015, 4, 14, 18),
                 description: 'Dinner'
             }, {
-                time: new Date(2015, 4, 21, 19),
-                description: 'Presentations'
+                description: 'Hacking'
             }, {
-                time: new Date(2015, 4, 21, 20),
-                description: 'Afterparty'
+                time: new Date(2015, 4, 14, 21),
+                description: 'Wake up activity'
+            }, {
+                time: new Date(2015, 4, 14, 23),
+                description: 'Night Office Run?'
+            }]
+        }, {
+            day: 'Friday',
+
+            events: [{
+                description: 'Hacking'
+            }, {
+                time: new Date(2015, 4, 15, 8),
+                description: 'Morning workout'
+            }, {
+                time: new Date(2015, 4, 15, 9),
+                description: 'Breakfast, Sync with CZ'
+            }, {
+                description: 'Hacking'
+            }, {
+                time: new Date(2015, 4, 15, 11),
+                description: 'Fun Event'
+            }, {
+                description: 'Hacking'
+            }, {
+                time: new Date(2015, 4, 15, 12),
+                description: 'Lunch'
+            }, {
+                description: 'Hacking'
+            }, {
+                time: new Date(2015, 4, 15, 17),
+                description: 'Final'
+            }, {
+                time: new Date(2015, 4, 15, 18),
+                description: 'Send the Video US Teams & Food'
             }]
         }]
     }
