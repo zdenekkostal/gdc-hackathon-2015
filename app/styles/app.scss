@@ -51,13 +51,14 @@ body {
 
     column-count: 2;
 
-    a {
+    div {
         display: block;
 
         text-transform: uppercase;
         text-decoration: none;
 
         color: #1c8fb9;
+        cursor: pointer;
 
         &:hover {
             color: black;
@@ -218,6 +219,44 @@ body {
     &:hover {
         background: #19A3A3;
         transform: scale(1.2);
+    }
+}
+
+#schedule {
+    @extend %page;
+
+    color: #fff;
+
+    h2 {
+        border-bottom: 1px solid rgba(255,255,255, .2);
+        padding-bottom: .3em;
+    }
+
+    h3 {
+        margin-top: 3em;
+        text-transform: uppercase;
+    }
+
+    .day-time {
+        padding-right: 100px;
+        line-height: 2.5em;
+    }
+
+    .locale-switch {
+        display: inline-block;
+        float: right;
+        margin-left: 10px;
+        padding: 0px 15px 7px 15px;
+
+        font-size: 24px;
+        color: rgba(255,255,255, .2);
+
+        cursor: pointer;
+
+        &.active {
+            border-bottom: 2px solid white;
+            color: white;
+        }
     }
 }
 

@@ -12,6 +12,10 @@ module.exports = function getWebpackConfig() {
         module: {
             loaders: [
                 {
+                    test: /jquery/,
+                    loader: 'expose?jQuery'
+                },
+                {
                     test: /\.js$/,
                     loader: 'babel-loader',
                     exclude: /node_modules/
@@ -64,13 +68,15 @@ module.exports = function getWebpackConfig() {
             modulesDirectories: ['node_modules', 'bower_components'],
 
             alias: {
-                react: path.join(__dirname, 'node_modules/react/')
+                react: path.join(__dirname, 'node_modules/react/'),
+                jquery: path.join(__dirname, 'bower_components/jquery/dist/jquery')
             }
         },
 
         plugins: [
             new webpack.ProvidePlugin({
-                React: 'react'
+                React: 'react',
+                $: 'jquery'
             })
         ]
     };
