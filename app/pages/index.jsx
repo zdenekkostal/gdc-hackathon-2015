@@ -21,6 +21,8 @@ let Index = class Index extends Component {
     displayName: 'Index'
 
     constructor() {
+        var loc = window.location.href;
+
         this.state = {
             menu: [
                 { title: 'Hello', id: 'hello'},
@@ -31,11 +33,19 @@ let Index = class Index extends Component {
                 { title: 'Awards', id: 'awards'}
             ],
 
+            signupVisible: loc.search('goodhack') !== -1,
+
             locales: this.getLocales()
         };
     }
 
-    signupHandler (e) {
+    submitHandler () {
+        this.setState({
+            formVisible: false
+        });
+    }
+
+    signupHandler () {
         this.setState({
             formVisible: !this.state.formVisible
         });
@@ -48,11 +58,16 @@ let Index = class Index extends Component {
 
                 <Triangles />
 
-                <Hello signupHandler={this.signupHandler.bind(this)} />
+                <Hello signupVisible={this.state.signupVisible} signupHandler={this.signupHandler.bind(this)} />
                 <About />
                 <Schedule locales={this.state.locales} />
                 <Social />
-                <Projects formVisible={this.state.formVisible}  signupHandler={this.signupHandler.bind(this)} />
+                <Projects
+                    signupVisible={this.state.signupVisible}
+                    formVisible={this.state.formVisible}
+                    signupHandler={this.signupHandler.bind(this)}
+                    submitHandler={this.submitHandler.bind(this)}
+                />
                 <Awards />
             </div>
         );

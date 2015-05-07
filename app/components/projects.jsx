@@ -23,6 +23,8 @@ let Projects = class Projects extends Component {
             }
         });
 
+        this.props.submitHandler();
+
         return false;
     }
 
@@ -30,6 +32,16 @@ let Projects = class Projects extends Component {
         const projects = this.props.projects.map(this.renderProject.bind(this));
 
         var form;
+        var extra;
+
+        if (this.props.signupVisible) {
+            extra = (
+                <p>
+                    <button className="button"
+                    onClick={this.props.signupHandler} id="newProject">Add your own!</button>
+                </p>
+            );
+        }
 
         if(this.props.formVisible) {
             form = (
@@ -88,10 +100,7 @@ let Projects = class Projects extends Component {
                                 {projects}
                             </tbody>
                         </table>
-                        <p>
-                            <button className="button"
-                            onClick={this.props.signupHandler} id="newProject">Add your own!</button>
-                        </p>
+                        {extra}
 
                         {form}
                     </div>
