@@ -22,7 +22,7 @@ var uglifyOptions = {
 var buildConfig = _.assign(getWebpackConfig(), {
     output: {
         path: path.join(__dirname, '/dist/'),
-        publicPath: '/',
+        publicPath: './',
         filename: '[name].[hash].js'
     }
 });

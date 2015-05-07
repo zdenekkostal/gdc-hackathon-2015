@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { FormattedTime } from 'react-intl';
+var scheduleTri = require("../images/schedule.png");
 
 let Schedule = class Schedule extends Component {
     displayName: 'Schedule'
@@ -25,7 +26,7 @@ let Schedule = class Schedule extends Component {
         return (
             <div id="schedule" className="row">
                 <div className="columns show-for-large-up large-4">
-                    <img src="app/images/schedule.png" />
+                    <img src={scheduleTri} />
                 </div>
 
                 <div className="columns small-12 medium-12 large-8">

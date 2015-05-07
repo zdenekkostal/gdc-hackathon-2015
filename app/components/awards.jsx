@@ -1,4 +1,5 @@
 import { Component } from 'react';
+var bear = require("../images/bear.jpg");
 
 export default class Awards extends Component {
     displayName: 'Awards'
@@ -15,7 +16,7 @@ export default class Awards extends Component {
 
                         <p>Deadline for delivering the video recording is <strong>Friday 6pm</strong> (both PST and CET). The jury will choose three finalist during the weekend and the winner will be announced the following Monday, 18th May on the CZ - US All Hands Ceremony.</p>
 
-                        <img src="app/images/bear.jpg" />
+                        <img src={bear} />
                     </div>
                 </div>
             </div>

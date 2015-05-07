@@ -1,4 +1,5 @@
 import { Component } from 'react';
+var logo = require("../images/logo.png");
 
 export default class Hello extends Component {
     displayName: 'Hello'
@@ -6,7 +7,7 @@ export default class Hello extends Component {
     render() {
         return (
             <div id="hello">
-                <img src="app/images/logo.png" className="logo" />
+                <img src={logo} className="logo" />
 
                 <h1>
                     <strong className="color-green">All</strong><strong className="color-black">Data</strong>&nbsp;
