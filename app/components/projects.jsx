@@ -11,6 +11,10 @@ let Projects = class Projects extends Component {
     }
 
     componentWillMount() {
+        this.loadProjects();
+    }
+
+    loadProjects() {
         $.get('/repo').then((projects) => {
             this.setState({
                 projects: projects
@@ -29,13 +33,9 @@ let Projects = class Projects extends Component {
         $.ajax({
             type: "POST",
             url: url,
-            data: $("#newProjectForm").serialize(),
-            success: function(data){
-                console.log('Form-success: ', data);
-            },
-            failure: function(data){
-                console.log('Form-failure: ', data);
-            }
+            data: $("#newProjectForm").serialize()
+        }).then(() => {
+            this.loadProjects();
         });
 
         this.props.submitHandler();
