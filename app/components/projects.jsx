@@ -3,6 +3,29 @@ import { Component } from 'react';
 let Projects = class Projects extends Component {
     displayName: 'Projects'
 
+    onSubmit (){
+        var url = '/repo';
+
+        if ($("#p-name").val().length < 1) {
+            $("#p-name").focus();
+            return false;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: $("#newProjectForm").serialize(),
+            success: function(data){
+                console.log('Form-success: ', data);
+            },
+            failure: function(data){
+                console.log('Form-failure: ', data);
+            }
+        });
+
+        return false;
+    }
+
     render() {
         const projects = this.props.projects.map(this.renderProject.bind(this));
 
@@ -10,7 +33,7 @@ let Projects = class Projects extends Component {
 
         if(this.props.formVisible) {
             form = (
-                <form>
+                <form id="newProjectForm" onSubmit={this.onSubmit.bind(this)}>
                   <fieldset>
                     <legend>New project</legend>
                     <div className="row">
