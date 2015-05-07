@@ -15,7 +15,7 @@ export default class Hello extends Component {
                     <span className="color-pink">2015</span>
                 </h1>
 
-                MAY 7–8, 2015 • Prague, Brno, San Francisco • <span className="color-grey">#AllDataHack</span>
+                MAY 14–15, 2015 • Prague, Brno, San Francisco • <span className="color-grey">#AllDataHack</span>
 
                 <p>
                     <button className="button">Sign up</button>
