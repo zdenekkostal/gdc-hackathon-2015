@@ -66,7 +66,7 @@ let Social = class Social extends Component {
 };
 
 Social.defaultProps = {
-    tag: 'AllDataHack',
+    tag: 'AllDataHack2015',
     tweets: [],
     photos: []
 };

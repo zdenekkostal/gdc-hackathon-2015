@@ -113,28 +113,16 @@ let Projects = class Projects extends Component {
 Projects.defaultProps = {
     projects: [{
         name: 'GoodCraft',
-        uri: 'https://github.com/gooddata/gdc-client',
-        teammates: ['Bob Koutsky'],
-        origin: 'US',
-        likes: 23
+        uri: 'https://github.com/gooddata/gdc-client'
     }, {
         name: 'GoodCraft 2',
-        uri: 'https://github.com/gooddata/gdc-client',
-        teammates: ['Bob Koutsky'],
-        origin: 'US',
-        likes: 23
+        uri: 'https://github.com/gooddata/gdc-client'
     },{
         name: 'GoodCraft',
-        uri: 'https://github.com/gooddata/gdc-client',
-        teammates: ['Bob Koutsky'],
-        origin: 'US',
-        likes: 23
+        uri: 'https://github.com/gooddata/gdc-client'
     }, {
         name: 'GoodCraft 2',
-        uri: 'https://github.com/gooddata/gdc-client',
-        teammates: ['Bob Koutsky'],
-        origin: 'US',
-        likes: 23
+        uri: 'https://github.com/gooddata/gdc-client'
     }]
 };
 
