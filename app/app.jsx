@@ -9,6 +9,7 @@ require('./styles/avenir');
 require('./styles/app');
 require('./styles/triangles');
 
+import { Intl } from 'intl';
 import { render } from 'react';
 import { run } from 'react-router';
 import routes from './routes';
