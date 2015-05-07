@@ -3,6 +3,21 @@ import { Component } from 'react';
 let Projects = class Projects extends Component {
     displayName: 'Projects'
 
+    constructor() {
+        this.state = {
+            projects: [],
+            loading: true
+        };
+    }
+
+    componentWillMount() {
+        $.get('/repo').then((projects) => {
+            this.setState({
+                projects: projects
+            });
+        });
+    }
+
     onSubmit (){
         var url = '/repo';
 
@@ -29,7 +44,7 @@ let Projects = class Projects extends Component {
     }
 
     render() {
-        const projects = this.props.projects.map(this.renderProject.bind(this));
+        const projects = this.state.projects.map(this.renderProject.bind(this));
 
         var form;
         var extra;
@@ -101,7 +116,6 @@ let Projects = class Projects extends Component {
                             </tbody>
                         </table>
                         {extra}
-
                         {form}
                     </div>
                 </div>
@@ -113,26 +127,10 @@ let Projects = class Projects extends Component {
         return (
             <tr>
                 <td><b>{project.name}</b></td>
-                <td><a href={project.uri} target="_blank">{project.uri}</a></td>
+                <td><a href={project.link} target="_blank">{project.link}</a></td>
             </tr>
         );
     }
-};
-
-Projects.defaultProps = {
-    projects: [{
-        name: 'GoodCraft',
-        uri: 'https://github.com/gooddata/gdc-client'
-    }, {
-        name: 'GoodCraft 2',
-        uri: 'https://github.com/gooddata/gdc-client'
-    },{
-        name: 'GoodCraft',
-        uri: 'https://github.com/gooddata/gdc-client'
-    }, {
-        name: 'GoodCraft 2',
-        uri: 'https://github.com/gooddata/gdc-client'
-    }]
 };
 
 export default Projects;
