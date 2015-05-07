@@ -7,7 +7,8 @@ var serveStatic = require('serve-static');
 
 var app = express();
 app.use(morgan('combined'));
-app.use(bodyParser());
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 app.use(serveStatic(path.join(__dirname, '../build')));
 
 app.get('/repo', repo.findAll);
