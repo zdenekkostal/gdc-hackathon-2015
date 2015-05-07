@@ -16,7 +16,7 @@ export default class Hello extends Component {
                     <span className="color-pink">2015</span>
                 </h1>
 
-                MAY 14–15, 2015 • Prague, Brno, San Francisco • <span className="color-grey">#AllDataHack</span>
+                MAY 14 – 15, 2015 • Prague, Brno, San Francisco • <span className="color-grey">#AllDataHack2015</span>
 
                 <p onClick={this.props.signupHandler}>
                     <ScrollTo target="newProject">
