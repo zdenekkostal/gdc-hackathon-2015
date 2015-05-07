@@ -1,10 +1,14 @@
 var express = require('express');
 var path = require('path');
 var repo = require('./repo.js');
+var bodyParser = require('body-parser');
+var morgan = require('morgan');
+var serveStatic = require('serve-static');
 
 var app = express();
-app.use(express.logger());
-app.use(express.bodyParser());
+app.use(morgan('combined'));
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 app.use(serveStatic(path.join(__dirname, '../build')));
 
 app.get('/repo', repo.findAll);
