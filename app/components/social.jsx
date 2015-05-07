@@ -5,6 +5,8 @@ let Social = class Social extends Component {
 
     render() {
         const socialFeed = {};
+        const instagramLink = `https://instagram.com/explore/tags/${this.props.tag}/`;
+        const twitterLink = `https://twitter.com/search?q=${this.props.tag}&src=typd`;
 
         return (
             <div id="social">
@@ -22,12 +24,12 @@ let Social = class Social extends Component {
 
                         <dl className="social-instagram">
                             <dt>Instagram</dt>
-                            <dd><a href="https://instagram.com/explore/tags/${this.props.tag}/" target="_blank" className="color-green">#{this.props.tag}</a></dd>
+                            <dd><a href={instagramLink} target="_blank" className="color-green">#{this.props.tag}</a></dd>
                         </dl>
 
                         <dl className="social-twitter">
                             <dt>Twitter</dt>
-                            <dd><a href="https://twitter.com/search?q=${this.props.tag}&src=typd" target="_blank" className="color-green">#{this.props.tag}</a></dd>
+                            <dd><a href={twitterLink} target="_blank" className="color-green">#{this.props.tag}</a></dd>
                         </dl>
                     </div>
 
