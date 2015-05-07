@@ -8,14 +8,14 @@ exports.addRepo = function(req, res) {
     var repo = req.body;
 
     mongo.Db.connect(mongoUri, function (err, db) {
-        console.log('Adding repo: '+JSON.stringify(repo))
+        // console.log('Adding repo: '+JSON.stringify(repo))
 
         db.collection('repo', function(err, collection) {
             collection.insert(repo, {safe: true}, function(err, result) {
                 if (err) {
                     res.send({'error':'An error has occurred'});
                 } else {
-                    console.log('Success: ' + JSON.stringify(result[0]));
+                    // console.log('Success: ' + JSON.stringify(result[0]));
                     res.send(result[0]);
                 }
             });
