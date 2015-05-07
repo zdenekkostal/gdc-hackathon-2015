@@ -48,12 +48,16 @@
 
     form {
         background: #404040;
+        padding: 0 10px 1px;
 
         legend {
             background: none;
+            color: #fff;
         }
         label {
             color: #fff;
+            line-height: 2.5;
+            text-align: right;
         }
     }
 }

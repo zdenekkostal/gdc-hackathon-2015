@@ -13,13 +13,31 @@ let Projects = class Projects extends Component {
                 <form>
                   <fieldset>
                     <legend>New project</legend>
-                    <label>Name
-                      <input type="text" placeholder="Project name" />
-                    </label>
-                    <label>Link
-                      <input type="text" placeholder="Project link (optional)" />
-                    </label>
-                    <button className="button">Submit</button>
+                    <div className="row">
+                        <div className="small-2 columns">
+                            <label for="p-name">Name</label>
+                        </div>
+                        <div className="small-10 columns">
+                            <input type="text" id="p-name" name="name" placeholder="Project name" />
+                        </div>
+                    </div>
+
+                    <div className="row">
+                        <div className="small-2 columns">
+                            <label for="p-link">Link</label>
+                        </div>
+                        <div className="small-10 columns">
+                            <input type="text" id="p-link" name="link" placeholder="Project link (optional)" />
+                        </div>
+                    </div>
+
+                    <div className="row">
+                        <div className="small-2 columns"> </div>
+                        <div className="small-10 columns">
+                            <button className="button">Submit</button>
+                        </div>
+                    </div>
+
                   </fieldset>
                 </form>
             );
