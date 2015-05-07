@@ -1,11 +1,14 @@
 var express = require('express');
 var path = require('path');
 var repo = require('./repo.js');
+var bodyParser = require('body-parser');
+var morgan = require('morgan');
+var serveStatic = require('serve-static');
 
 var app = express();
-app.use(express.logger());
-app.use(express.bodyParser());
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(morgan());
+app.use(bodyParser());
+app.use(serveStatic(path.join(__dirname, '../build')));
 
 app.get('/repo', repo.findAll);
 app.post('/repo', repo.addRepo);
@@ -13,6 +16,6 @@ app.post('/repo', repo.addRepo);
 var port = process.env.PORT || 5000;
 
 app.listen(port, function() {
-    console.log("Listening on " + port);
+    console.log('Listening on ' + port);
 });
 
