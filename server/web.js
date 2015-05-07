@@ -6,7 +6,7 @@ var morgan = require('morgan');
 var serveStatic = require('serve-static');
 
 var app = express();
-app.use(morgan());
+app.use(morgan('combined'));
 app.use(bodyParser());
 app.use(serveStatic(path.join(__dirname, '../build')));
 
