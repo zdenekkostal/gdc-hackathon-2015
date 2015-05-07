@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import ScrollTo from './scrollTo';
 var logo = require("../images/logo.png");
 
 export default class Hello extends Component {
@@ -17,8 +18,10 @@ export default class Hello extends Component {
 
                 MAY 14–15, 2015 • Prague, Brno, San Francisco • <span className="color-grey">#AllDataHack</span>
 
-                <p>
-                    <button className="button">Sign up</button>
+                <p onClick={this.props.signupHandler}>
+                    <ScrollTo target="newProject">
+                        <button className="button">Sign up</button>
+                    </ScrollTo>
                 </p>
             </div>
         );

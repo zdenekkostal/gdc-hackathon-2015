@@ -6,6 +6,25 @@ let Projects = class Projects extends Component {
     render() {
         const projects = this.props.projects.map(this.renderProject.bind(this));
 
+        var form;
+
+        if(this.props.formVisible) {
+            form = (
+                <form>
+                  <fieldset>
+                    <legend>New project</legend>
+                    <label>Name
+                      <input type="text" placeholder="Project name" />
+                    </label>
+                    <label>Link
+                      <input type="text" placeholder="Project link (optional)" />
+                    </label>
+                    <button className="button">Submit</button>
+                  </fieldset>
+                </form>
+            );
+        }
+
         return (
             <div id="projects">
                 <div className="row">
@@ -22,17 +41,18 @@ let Projects = class Projects extends Component {
                             <tbody>
                                 <tr>
                                     <th>Project name</th>
-                                    <th>Teammates</th>
-                                    <th>Origin</th>
-                                    <th>Likes</th>
+                                    <th>Link</th>
                                 </tr>
 
                                 {projects}
                             </tbody>
                         </table>
                         <p>
-                            <button className="button">Add your own!</button>
+                            <button className="button"
+                            onClick={this.props.signupHandler} id="newProject">Add your own!</button>
                         </p>
+
+                        {form}
                     </div>
                 </div>
             </div>
@@ -42,10 +62,8 @@ let Projects = class Projects extends Component {
     renderProject(project) {
         return (
             <tr>
-                <td><a href={project.uri}>{project.name}</a></td>
-                <td>{project.teammates.join(', ')}</td>
-                <td>{project.origin}</td>
-                <td>{project.likes}</td>
+                <td><b>{project.name}</b></td>
+                <td><a href={project.uri} target="_blank">{project.uri}</a></td>
             </tr>
         );
     }

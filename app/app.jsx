@@ -3,6 +3,7 @@
 require('foundation/scss/normalize');
 require('foundation/scss/foundation/components/_grid');
 require('foundation/scss/foundation/components/_visibility');
+require('foundation/scss/foundation/components/_forms');
 
 require('./styles/avenir');
 require('./styles/app');
