@@ -21,7 +21,7 @@ var uglifyOptions = {
 
 var buildConfig = _.assign(getWebpackConfig(), {
     output: {
-        path: path.join(__dirname, '/dist/'),
+        path: path.join(__dirname, '/build/'),
         publicPath: './',
         filename: '[name].[hash].js'
     }
@@ -39,16 +39,7 @@ buildConfig.plugins = buildConfig.plugins.concat(
     new webpack.optimize.UglifyJsPlugin(uglifyOptions),
     new HtmlWebpackPlugin({
         template: 'index.build.html'
-    }),
-
-    function() {
-        this.plugin('done', function(stats) {
-            var filename = path.join(__dirname, 'dist', 'stats.json');
-            stats = JSON.stringify(stats.toJson(), null, '\t');
-
-            require('fs').writeFileSync(filename, stats);
-        });
-    }
+    })
 );
 
 module.exports = buildConfig;
