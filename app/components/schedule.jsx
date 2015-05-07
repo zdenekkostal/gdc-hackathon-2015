@@ -24,11 +24,11 @@ let Schedule = class Schedule extends Component {
 
         return (
             <div id="schedule" className="row">
-                <div className="columns show-for-medium-up medium-4">
+                <div className="columns show-for-large-up large-4">
                     <img src="app/images/schedule.png" />
                 </div>
 
-                <div className="columns small-12 medium-8">
+                <div className="columns small-12 medium-12 large-8">
                     <h2>Schedule {localeSwitcher}</h2>
 
                     {schedule}

@@ -1,0 +1,7 @@
+$max-width: 850px;
+$text-color-dark: #404040;
+
+%page {
+    max-width: $max-width;
+    margin: 265px auto 0;
+}

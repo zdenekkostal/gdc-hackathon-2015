@@ -44,7 +44,7 @@
 @media screen and (max-width: 50em){
     .triangles-left,
     .triangles-right {
-        transform: scale(0.65);
+        transform: scale(0.75);
     }
 }
 
@@ -183,18 +183,9 @@
 .tri-r-big {
     position: absolute;
     right: 0px;
-    top: 1050px;
+    top: 1200px;
     height: 2400px;
     width: 1750px;
 
-    background: -webkit-gradient(linear, left top, left bottom,
-        color-stop(0%, rgb(20, 107, 139)),
-        color-stop(35%, rgb(2, 25, 79)),
-        color-stop(50%, #000),
-        color-stop(65%, rgb(61, 35, 85)),
-        color-stop(90%, rgb(237, 118, 101)),
-        color-stop(100%, rgb(243, 199, 136))
-    );
-
-    clip-path: polygon(0 50%, 100% 100%, 100% 0);
+    background: url("../images/sky.svg") top left no-repeat;
 }

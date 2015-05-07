@@ -1,0 +1,50 @@
+@import "vars";
+
+#hello {
+    position: relative;
+    z-index: 1;
+
+    text-align: center;
+
+    font-size: 16px;
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 1.75rem;
+    }
+
+    img {
+        display: none;
+        margin: 60px auto 90px;
+    }
+
+    button {
+        margin-top: 65px;
+    }
+}
+
+@media screen and (min-width: 30em) {
+    #hello h1 {
+        font-size: 35px;
+    }
+}
+
+@media screen and (min-width: 40em) {
+    #hello img {
+        display: block;
+    }
+
+    #hello h1 {
+        font-size: 45px;
+    }
+}
+
+@media screen and (min-width: 55em){
+    #hello {
+        font-size: 22px;
+    }
+
+    #hello h1 {
+        font-size: 60px;
+    }
+}

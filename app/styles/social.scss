@@ -1,0 +1,18 @@
+@import "vars";
+
+#social {
+    @extend %page;
+    margin-top: 300px;
+
+    color: $text-color-dark;
+    font-size: 22px;
+
+    h2 {
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    .squares {
+        min-height: 600px;
+    }
+}

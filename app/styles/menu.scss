@@ -1,0 +1,45 @@
+@import "vars";
+
+#menu {
+    @extend %page;
+    margin-top: 0 !important;
+    padding-top: 30px;
+
+    text-align: center;
+    line-height: 2rem;
+
+    column-count: 2;
+
+    div {
+        display: block;
+
+        text-transform: uppercase;
+        text-decoration: none;
+
+        color: #1c8fb9;
+        cursor: pointer;
+
+        &:hover {
+            color: black;
+            text-decoration: underline;
+        }
+    }
+}
+
+@media screen and (max-width: 30em){
+    #menu {
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (min-width: 30em){
+    #menu {
+        column-count: 3;
+    }
+}
+
+@media screen and (min-width: 55em){
+    #menu {
+        column-count: 6;
+    }
+}
