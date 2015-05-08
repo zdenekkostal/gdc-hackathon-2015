@@ -11,7 +11,7 @@ let Social = class Social extends Component {
         return (
             <div id="social">
                 <div className="row">
-                    <div className="columns small-12 medium-9">
+                    <div className="columns small-12 large-9">
                         <h2>Get social</h2>
                         <p>Include the official hashtag <a href="https://twitter.com/search?q=AllDataHack2015&src=typd" className="color-green">#AllDataHack2015</a> in your social posts.</p>
                         <p>We will be rewarding the most liked photos on Instagram. The only requirement is to include the hashtag so others can find it easily, duh!</p>
@@ -37,7 +37,9 @@ let Social = class Social extends Component {
                 </div>
 
                 <div className="row">
-                    We will also be updating our <a href="https://plus.google.com/u/0/104029022504534058490/posts" target="_blank">Google+ Event</a> page with photos from the event.
+                    <div className="columns text-right">
+                        We will also be updating our <a href="https://plus.google.com/u/0/104029022504534058490/posts" target="_blank" className="color-pink">Google+ Event</a><br /> page with photos from the event.
+                    </div>
                 </div>
             </div>
         );

@@ -100,7 +100,7 @@ let Projects = class Projects extends Component {
         return (
             <div id="projects">
                 <div className="row">
-                    <div className="small-9 columns">
+                    <div className="small-12 large-9 columns">
                         <h2>Projects</h2>
                         <p>Register your team for the hackathon in the table below. Please note that registration is essential so the organization team can adequately support you.</p>
                         <p>Be sure to support your favorite projects by liking them!</p>
