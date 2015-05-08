@@ -20,7 +20,7 @@ export default class Hello extends Component {
 
         return (
             <div id="hello">
-                <img src={logo} className="logo" />
+                <div className="logo"></div>
 
                 <h1>
                     <strong className="color-green">All</strong><strong className="color-black">Data</strong>&nbsp;
