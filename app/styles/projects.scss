@@ -7,7 +7,7 @@
     color: #fff;
     font-size: 22px;
 
-    min-height: 1500px;
+    height: 1280px;
 
     h2 {
         font-size: 35px;
@@ -50,13 +50,40 @@
         background: #404040;
         padding: 0 10px 1px;
 
+        fieldset {
+            border-radius: 6px;
+        }
+
+        input {
+            font-family: Avenir;
+            color: #404040;
+            border: 0;
+            font-size: 20px;
+            border-radius: 6px;
+
+            @include placeholder {
+                color: rgba(145,145,151, .7);
+            }
+
+            &.invalid {
+                background: #c10;
+                color: #fff;
+
+                @include placeholder {
+                    color: rgba(255,255,255, .7);
+                }
+            }
+        }
+
         legend {
             background: none;
             color: #fff;
         }
+
         label {
+            font-size: 20px;
             color: #fff;
-            line-height: 2.5;
+            line-height: 2.2em;
             text-align: right;
         }
     }

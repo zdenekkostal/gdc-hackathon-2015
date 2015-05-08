@@ -24,11 +24,15 @@ let Projects = class Projects extends Component {
 
     onSubmit (){
         var url = '/repo';
+        var nameInput = $("#p-name");
 
-        if ($("#p-name").val().length < 1) {
-            $("#p-name").focus();
+        if (nameInput.val().length < 1) {
+            nameInput.focus();
+            nameInput.addClass('invalid');
             return false;
         }
+
+        nameInput.removeClass('invalid');
 
         $.ajax({
             type: "POST",

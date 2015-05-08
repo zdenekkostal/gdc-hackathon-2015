@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import ScrollTo from './scrollTo';
-var logo = require("../images/logo.png");
 
 export default class Hello extends Component {
     displayName: 'Hello'

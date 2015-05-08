@@ -5,3 +5,10 @@ $text-color-dark: #404040;
     max-width: $max-width;
     margin: 265px auto 0;
 }
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}
+}

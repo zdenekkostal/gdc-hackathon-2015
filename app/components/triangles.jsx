@@ -29,6 +29,9 @@ export default class Triangles extends Component {
 
                     <div className="tri-r-4 show-for-large-up"></div>
                     <div className="tri-r-5 show-for-large-up"></div>
+
+                    <div className="tri-r-6 show-for-large-up"></div>
+                    <div className="tri-r-7 show-for-large-up"></div>
                 </div>
 
             </div>

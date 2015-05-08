@@ -45,6 +45,12 @@ let Index = class Index extends Component {
         });
     }
 
+    showForm () {
+        this.setState({
+            formVisible: true
+        });
+    }
+
     signupHandler () {
         this.setState({
             formVisible: !this.state.formVisible
@@ -58,7 +64,7 @@ let Index = class Index extends Component {
 
                 <Triangles />
 
-                <Hello signupVisible={this.state.signupVisible} signupHandler={this.signupHandler.bind(this)} />
+                <Hello signupVisible={this.state.signupVisible} signupHandler={this.showForm.bind(this)} />
                 <About />
                 <Schedule locales={this.state.locales} />
                 <Social />

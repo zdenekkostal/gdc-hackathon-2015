@@ -180,6 +180,24 @@
     border-right: 90px solid rgba(93, 193, 196, .5);
 }
 
+.tri-r-6 {
+    @include triangle(280px);
+
+    right: 0;
+    top: 6685px;
+
+    border-left: 440px solid #92c9de;
+}
+
+.tri-r-7 {
+    @include triangle(250px);
+
+    right: 440px;
+    top: 6385px;
+
+    border-right: 450px solid rgba(93, 193, 196, .5);
+}
+
 .tri-r-big {
     position: absolute;
     right: 0px;
