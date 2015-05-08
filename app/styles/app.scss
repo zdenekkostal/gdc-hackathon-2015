@@ -13,11 +13,6 @@ html, body {
 body {
     background: white url("../images/triangle.svg") top left repeat;
     background-size: 12%;
-
-    /*
-    background: white url("../images/goodhack-bg.png") top center no-repeat;
-    background-size: cover;
-    */
 }
 
 // app
@@ -43,6 +38,19 @@ body {
 @import "social";
 @import "projects";
 @import "awards";
+
+@media screen and (max-width: 64.063em) {
+    #app {
+        min-height: 0;
+    }
+    #about, #schedule, #social, #projects, #awards {
+        margin: 100px auto 0 !important;
+    }
+
+    #hello, #about, #schedule, #social, #projects, #awards, .squares {
+        height: auto !important;
+    }
+}
 
 // button
 

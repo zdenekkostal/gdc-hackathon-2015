@@ -18,13 +18,8 @@
         font-weight: bold;
     }
 
-    .bear {
+    img {
+        display: inline-block;
         margin: 20px auto;
-
-        width: 700px;
-        height: 520px;
-
-        background: url("../images/bear.png") top left no-repeat;
-        background-size: cover;
     }
 }

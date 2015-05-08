@@ -83,8 +83,8 @@
 .tri-p-1 {
     @include triangle(90px);
 
-    left: 160px;
-    top: 400px;
+    left: 120px;
+    top: 520px;
 
     border-right: 160px solid rgba(238, 93, 146, 1);
 }
@@ -92,19 +92,19 @@
 .tri-p-2 {
     @include triangle(90px);
 
-    left: 160px;
-    top: 380px;
+    left: 120px;
+    top: 500px;
 
     border-left: 160px solid rgba(238, 93, 146, 0.5);
 }
 
 .tri-p-3 {
-    @include triangle(150px);
+    @include triangle(120px);
 
-    left: 55px;
-    top: 469px;
+    left: 70px;
+    top: 589px;
 
-    border-right: 265px solid rgba(238, 93, 146, 0.35);
+    border-right: 210px solid rgba(238, 93, 146, 0.35);
 }
 
 .tri-p-4 {
