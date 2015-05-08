@@ -22,7 +22,7 @@ export default class About extends Component {
                 <div className="row">
                     <div className="small-9 columns">
                         <h2>Let's do something awesome.</h2>
-                        <p>Get ready for learning new technologies and pushing your limits. We’ll provide plenty of food, awesome swag and everything you need to carry out your craziest ideas.</p>
+                        <p>Get ready to learn new technologies and push your limits. We'll provide plenty of food, awesome swag, and everything you'll need to carry out your craziest ideas.</p>
                         <p>In case you want to rest for a bit, we got you covered.</p>
                     </div>
                 </div>

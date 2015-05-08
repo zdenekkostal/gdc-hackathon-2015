@@ -98,7 +98,7 @@ let Projects = class Projects extends Component {
                 <div className="row">
                     <div className="small-9 columns">
                         <h2>Projects</h2>
-                        <p>Register your team for the hackathon into the table below. Please note that the registration is essential as the organisational team can supply you adequately.</p>
+                        <p>Register your team for the hackathon in the table below. Please note that registration is essential so the organization team can adequately support you.</p>
                         <p>Be sure to support your favorite projects by liking them!</p>
                     </div>
                 </div>
