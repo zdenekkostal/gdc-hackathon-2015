@@ -1,13 +1,11 @@
 import { Component } from 'react';
 
+import SocialFeed from './socialFeed';
+
 let Social = class Social extends Component {
     displayName: 'Social'
 
     render() {
-        const socialFeed = {};
-        const instagramLink = `https://instagram.com/explore/tags/${this.props.tag}/`;
-        const twitterLink = `https://twitter.com/search?q=${this.props.tag}&src=typd`;
-
         return (
             <div id="social">
                 <div className="row">
@@ -18,23 +16,7 @@ let Social = class Social extends Component {
                     </div>
                 </div>
 
-                <div className="row squares">
-                    <div className="columns small-6 medium-4 large-3 social-links">
-                        <h3>See more</h3>
-
-                        <dl className="social-instagram">
-                            <dt>Instagram</dt>
-                            <dd><a href={instagramLink} target="_blank" className="color-green">#{this.props.tag}</a></dd>
-                        </dl>
-
-                        <dl className="social-twitter">
-                            <dt>Twitter</dt>
-                            <dd><a href={twitterLink} target="_blank" className="color-green">#{this.props.tag}</a></dd>
-                        </dl>
-                    </div>
-
-                    {socialFeed}
-                </div>
+                <SocialFeed tag={this.props.tag} photos={this.props.photos} tweets={this.props.tweets} />
 
                 <div className="row">
                     <div className="columns text-right">
@@ -44,33 +26,28 @@ let Social = class Social extends Component {
             </div>
         );
     }
-
-    renderTweet(tweet) {
-        return (
-            <div className="columns small-6 medium-4 large-3 tweet">
-                <p className="tweet-text">{tweet.text}</p>
-
-                <div className="tweet-meta">
-                    <a href={tweet.authorUri} className="tweet-author" target="_blank">@{tweet.author}</a>
-                    <a href={tweet.url} target="_blank"><small className="tweet-date">{tweet.date}</small></a>
-                </div>
-            </div>
-        );
-    }
-
-    renderPhoto(photo) {
-        return (
-            <a href={photo.url} title={photo.description} target="_blank" className="columns small-6 medium-4 large-3 photo">
-                <img src={photo.image} />
-            </a>
-        );
-    }
 };
 
 Social.defaultProps = {
     tag: 'AllDataHack2015',
-    tweets: [],
-    photos: []
+    tweets: [
+        // {text: 'The only requirement is to include the hashtag so others can find it easily, duh!', author: 'Kristy', date: 'Nov 1 2014'},
+        // {text: 'Whether it is Twitter, Facebook, Yelp or just a post to co-workers or business officials, the number of actual characters matters. What you say.', author: 'Kristy', date: 'Oct 3 2014'},
+        // {text: 'Include the official hashtag #AllDataHack2015 in your social posts.', author: 'Kristy', date: 'Dec 1 2014'},
+        // {text: 'Secondly, you have to create a new CSS class that uses Socicon icons font. Here, a small example:', author: 'Kristy', date: 'jan 15 2015'},
+        // {text: 'ertert ert erter tertert et e', author: 'Kristy', date: 'Dec 1 2014'},
+        // {text: 'Yelp or just a post to co-workers or business officials, the number of actual characters matters. ', author: 'Kristy', date: 'jan 15 2015'}
+    ],
+    photos: [
+        // {url: '//instagram.com/p/x', image: './app/images/bear.jpg'},
+        // {url: '//instagram.com/p/x', image: './app/images/bill.jpg'},
+        // {url: '//instagram.com/p/x', image: './app/images/jarda.jpg'},
+        // {url: '//instagram.com/p/x', image: './app/images/kristy.png'},
+        // {url: '//instagram.com/p/x', image: './app/images/bill.jpg'},
+        // {url: '//instagram.com/p/x', image: './app/images/jarda.jpg'},
+        // {url: '//instagram.com/p/x', image: './app/images/kristy.png'},
+        // {url: '//instagram.com/p/x', image: './app/images/jarda.jpg'}
+    ]
 };
 
 export default Social;

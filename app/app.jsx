@@ -8,6 +8,7 @@ require('foundation/scss/foundation/components/_forms');
 require('./styles/avenir');
 require('./styles/app');
 require('./styles/triangles');
+require('./styles/socicon');
 
 // Fixes Firefox unknow lastMatch in Intl polyfill
 // https://github.com/andyearnshaw/Intl.js/pull/80

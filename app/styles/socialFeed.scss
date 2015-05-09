@@ -1,0 +1,76 @@
+@import "vars";
+
+.socialFeed {
+    margin-top: 2em;
+    height: 720px;
+
+    color: #404040;
+
+    .social-links {
+        font-size: 18px;
+
+        h3 {
+            margin: 0 0 1em 0;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        dt {
+            span {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .socicon {
+                margin-right: 10px;
+                color: #acacad;
+            }
+        }
+
+        dd {
+            margin-left: 25px;
+            line-height: 1em;
+        }
+    }
+
+    .tweet,
+    .photo {
+        height: 220px;
+        overflow: hidden;
+    }
+
+    .tweet {
+        background: #fff;
+
+        a {
+            color: #1c8fb9;
+        }
+
+        .tweet-text {
+//            display: inline-block;
+            display: table-cell;
+            vertical-align:middle;
+            margin: 0 auto;
+
+            width: 175px;
+            height: 160px;
+
+            font-size: 15px;
+            line-height: 1.2em;
+        }
+
+        .tweet-meta {
+            font-size: 14px;
+            line-height: 1.2em;
+
+            .socicon {
+                color: #e1e1e1;
+                font-size: 26px;
+                line-height: 1.2em;
+            }
+
+            a {
+                display: block;
+            }
+        }
+    }
+}
