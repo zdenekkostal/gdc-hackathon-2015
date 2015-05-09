@@ -68,7 +68,7 @@ let Schedule = class Schedule extends Component {
     renderEvent(event) {
         return (
             <tr>
-                <td className="day-time">{event.time && <FormattedTime value={event.time} units="hour" hour="numeric" minute="numeric" locales={this.props.locales} />}</td>
+                <td className="day-time">{event.time && <FormattedTime value={event.time} units="hour" hour="numeric" minute="numeric" locales={this.state.locale} />}</td>
                 <td>{event.description}</td>
             </tr>
         );
