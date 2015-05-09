@@ -5,15 +5,17 @@ import SocialFeed from './socialFeed';
 let Social = class Social extends Component {
     displayName: 'Social'
 
-    constructor () {
+    constructor (props) {
         this.state = {
             tweets: [],
-            photos: []
+            photos: [],
+            locale: props.locales[0]
         };
     }
 
     componentWillMount() {
         this.loadInstagram();
+        this.loadTwitter();
     }
 
     loadInstagram() {
@@ -28,6 +30,30 @@ let Social = class Social extends Component {
 
             this.setState({
                 photos: photos
+            });
+        });
+    }
+
+    loadTwitter() {
+        $.get('/twitter').then((response) => {
+            if (!response.statuses) return;
+
+            var base = 'https://twitter.com/';
+
+            var tweets = response.statuses.map(function(item) {
+               return {
+                   url:  base + item.user.screen_name + '/status/' + item.id_str,
+                   text: item.text,
+                   author: item.user.screen_name,
+                   authorUri: base + item.user.screen_name,
+                   date: new Date(item.created_at).toLocaleString(this.state.locale),
+               };
+            }.bind(this))
+            // get first 10
+            .slice(0, 10);
+
+            this.setState({
+                tweets: tweets
             });
         });
     }

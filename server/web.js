@@ -6,6 +6,7 @@ var serveStatic = require('serve-static');
 
 var repo = require('./repo.js');
 var instagram = require('./instagram.js');
+var twitter = require('./twitter.js');
 
 var app = express();
 app.use(morgan('combined'));
@@ -17,7 +18,10 @@ app.get('/repo', repo.findAll);
 app.post('/repo', repo.addRepo);
 
 app.get('/instagram', instagram.provide);
-app.get('/insta', instagram.cache);
+app.get('/photos', instagram.cache);
+
+app.get('/twitter', twitter.provide);
+app.get('/tweets', twitter.cache);
 
 var port = process.env.PORT || 5000;
 

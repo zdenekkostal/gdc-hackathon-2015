@@ -1,16 +1,25 @@
 var httpRequest = require('request');
 var fs = require('fs');
+var Twitter = require('twitter');
 
-var instagramAPI = 'https://api.instagram.com/v1/tags/gooddata/media/recent/?access_token=2433696.ab103e5.83f950f1a3a94f5b8bb2c3145011cafa';
+var twitterClient = new Twitter({
+    consumer_key: process.env.TWITTER_CONS_KEY,
+    consumer_secret: process.env.TWITTER_CONS_SECRET,
+    access_token_key: process.env.TWITTER_TOKEN_KEY,
+    access_token_secret: process.env.TWITTER_TOKEN_SECRET
+});
+
+var hashtag = 'AllDataHack2015';
+var cacheFile = './twitter-cache';
 
 exports.provide = function(request, response) {
-    fs.exists('./instagram-cache', function (exists) {
+    fs.exists(cacheFile, function (exists) {
         if (!exists){
             response.send({"error": 'cache is empty'});
             return;
         }
 
-        var contents = fs.readFileSync('./instagram-cache').toString();
+        var contents = fs.readFileSync(cacheFile).toString();
         // response.setHeader('Access-Control-Allow-Origin', '*');
         response.setHeader('Content-Type', 'application/json');
         response.send(contents);
@@ -18,13 +27,13 @@ exports.provide = function(request, response) {
 };
 
 exports.cache = function(request, response) {
-    httpRequest(instagramAPI, function (error, res, body) {
+    twitterClient.get('search/tweets', {q: '#'+hashtag}, function(error, body, res){
         if (!error && res.statusCode == 200) {
             // response.setHeader('Access-Control-Allow-Origin', '*');
             response.setHeader('Content-Type', 'application/json');
             response.send(body);
 
-            fs.writeFile("./instagram-cache", body, function(err) {
+            fs.writeFile(cacheFile, JSON.stringify(body), function(err) {
                 if (err) response.send({"error": err});
             });
         }else{

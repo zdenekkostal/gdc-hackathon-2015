@@ -67,7 +67,7 @@ let Index = class Index extends Component {
                 <Hello signupVisible={this.state.signupVisible} signupHandler={this.showForm.bind(this)} />
                 <About />
                 <Schedule locales={this.state.locales} />
-                <Social />
+                <Social locales={this.state.locales} />
                 <Projects
                     signupVisible={this.state.signupVisible}
                     formVisible={this.state.formVisible}
