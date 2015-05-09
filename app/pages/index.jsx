@@ -35,6 +35,8 @@ let Index = class Index extends Component {
 
             signupVisible: loc.search('goodhack') !== -1,
 
+            progressVisible: loc.search('progress') !== -1,
+
             locales: this.getLocales()
         };
     }
@@ -64,16 +66,23 @@ let Index = class Index extends Component {
 
                 <Triangles />
 
-                <Hello signupVisible={this.state.signupVisible} signupHandler={this.showForm.bind(this)} />
+                <Hello
+                    signupVisible={this.state.signupVisible}
+                    signupHandler={this.showForm.bind(this)}
+                    progressVisible={this.state.progressVisible}
+                    progress={50} />
+
                 <About />
+
                 <Schedule locales={this.state.locales} />
+
                 <Social locales={this.state.locales} />
+
                 <Projects
                     signupVisible={this.state.signupVisible}
                     formVisible={this.state.formVisible}
                     signupHandler={this.signupHandler.bind(this)}
-                    submitHandler={this.submitHandler.bind(this)}
-                />
+                    submitHandler={this.submitHandler.bind(this)} />
                 <Awards />
             </div>
         );

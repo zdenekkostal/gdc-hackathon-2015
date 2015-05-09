@@ -1,0 +1,50 @@
+@import "vars";
+
+.progressBar {
+    position: relative;
+    margin: 50px auto 10px;
+
+    width: 100%;
+    max-width: 600px;
+
+    height: 8px;
+
+    background: rgba(0,0,0, .2);
+    border-radius: 4px;
+}
+
+.progressBar-status {
+    height: 8px;
+    border-radius: 4px;
+
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(left,  #1e5799 0%, #146b8b 0%, #ee5d92 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#1e5799), color-stop(0%,#146b8b), color-stop(100%,#ee5d92)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #1e5799 0%,#146b8b 0%,#ee5d92 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #1e5799 0%,#146b8b 0%,#ee5d92 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #1e5799 0%,#146b8b 0%,#ee5d92 100%); /* IE10+ */
+    background: linear-gradient(to right,  #1e5799 0%,#146b8b 0%,#ee5d92 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#ee5d92',GradientType=1 ); /* IE6-9 */
+}
+
+.progressBar-point{
+    position: absolute;
+    top: 1px;
+    width: 6px;
+    height: 6px;
+    margin-left: 2px;
+
+    background: #fff;
+    border-radius: 4px;
+}
+
+.progressBar-point-border{
+    position: absolute;
+    top: -1px;
+    width: 10px;
+    height: 10px;
+
+    background: transparent;
+    border: 2px solid rgba(0,0,0, .2);
+    border-radius: 50%;
+}

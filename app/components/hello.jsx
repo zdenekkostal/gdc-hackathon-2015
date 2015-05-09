@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import ScrollTo from './scrollTo';
+import ProgressBar from './progressBar';
 
 export default class Hello extends Component {
     displayName: 'Hello'
@@ -17,17 +18,40 @@ export default class Hello extends Component {
             );
         }
 
+        if (this.props.progressVisible) {
+            var hacking;
+            var progress = this.props.progress;
+
+            if (progress > 0 && progress <= 100){
+                var hacking = (
+                    <div className="hacking">
+                        Hacking in progress
+                    </div>
+                );
+            }
+
+            extra = (
+                <div className="progress-area">
+                    <ProgressBar progress={progress} />
+                    {hacking}
+                </div>
+            );
+        }
+
         return (
             <div id="hello">
                 <div className="logo"></div>
 
                 <h1>
-                    <strong className="color-green">All</strong><strong className="color-black">Data</strong>&nbsp;
+                    <strong className="color-green">All</strong><strong className="color-black">Data</strong>
+                    <br className="show-for-small" />
                     <strong className="color-pink">Hackathon</strong>&nbsp;
                     <span className="color-pink">2015</span>
                 </h1>
 
-                MAY 14 – 15, 2015 • Prague, Brno, San Francisco • <span className="color-grey">#AllDataHack2015</span>
+                MAY 14 – 15, 2015
+                    <br className="show-for-small" /> • Prague, Brno, San Francisco
+                    <br className="show-for-small" /> • <span className="color-grey">#AllDataHack2015</span>
 
                 {extra}
             </div>

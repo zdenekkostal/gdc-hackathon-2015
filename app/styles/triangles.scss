@@ -84,7 +84,7 @@
     @include triangle(90px);
 
     left: 120px;
-    top: 520px;
+    top: 530px;
 
     border-right: 160px solid rgba(238, 93, 146, 1);
 }
@@ -93,7 +93,7 @@
     @include triangle(90px);
 
     left: 120px;
-    top: 500px;
+    top: 510px;
 
     border-left: 160px solid rgba(238, 93, 146, 0.5);
 }
@@ -102,7 +102,7 @@
     @include triangle(120px);
 
     left: 70px;
-    top: 589px;
+    top: 599px;
 
     border-right: 210px solid rgba(238, 93, 146, 0.35);
 }
