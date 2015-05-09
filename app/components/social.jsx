@@ -5,6 +5,33 @@ import SocialFeed from './socialFeed';
 let Social = class Social extends Component {
     displayName: 'Social'
 
+    constructor () {
+        this.state = {
+            tweets: [],
+            photos: []
+        };
+    }
+
+    componentWillMount() {
+        this.loadInstagram();
+    }
+
+    loadInstagram() {
+        $.get('/instagram').then((insta) => {
+            if (!insta.data) return;
+
+            var photos = insta.data.map(function(item) {
+               return {url: item.link, image: item.images.low_resolution.url};
+            })
+            // get first 10
+            .slice(0, 10);
+
+            this.setState({
+                photos: photos
+            });
+        });
+    }
+
     render() {
         return (
             <div id="social">
@@ -16,7 +43,7 @@ let Social = class Social extends Component {
                     </div>
                 </div>
 
-                <SocialFeed tag={this.props.tag} photos={this.props.photos} tweets={this.props.tweets} />
+                <SocialFeed tag={this.props.tag} photos={this.state.photos} tweets={this.state.tweets} />
 
                 <div className="row">
                     <div className="columns text-right">
@@ -29,25 +56,7 @@ let Social = class Social extends Component {
 };
 
 Social.defaultProps = {
-    tag: 'AllDataHack2015',
-    tweets: [
-        // {text: 'The only requirement is to include the hashtag so others can find it easily, duh!', author: 'Kristy', date: 'Nov 1 2014'},
-        // {text: 'Whether it is Twitter, Facebook, Yelp or just a post to co-workers or business officials, the number of actual characters matters. What you say.', author: 'Kristy', date: 'Oct 3 2014'},
-        // {text: 'Include the official hashtag #AllDataHack2015 in your social posts.', author: 'Kristy', date: 'Dec 1 2014'},
-        // {text: 'Secondly, you have to create a new CSS class that uses Socicon icons font. Here, a small example:', author: 'Kristy', date: 'jan 15 2015'},
-        // {text: 'ertert ert erter tertert et e', author: 'Kristy', date: 'Dec 1 2014'},
-        // {text: 'Yelp or just a post to co-workers or business officials, the number of actual characters matters. ', author: 'Kristy', date: 'jan 15 2015'}
-    ],
-    photos: [
-        // {url: '//instagram.com/p/x', image: './app/images/bear.jpg'},
-        // {url: '//instagram.com/p/x', image: './app/images/bill.jpg'},
-        // {url: '//instagram.com/p/x', image: './app/images/jarda.jpg'},
-        // {url: '//instagram.com/p/x', image: './app/images/kristy.png'},
-        // {url: '//instagram.com/p/x', image: './app/images/bill.jpg'},
-        // {url: '//instagram.com/p/x', image: './app/images/jarda.jpg'},
-        // {url: '//instagram.com/p/x', image: './app/images/kristy.png'},
-        // {url: '//instagram.com/p/x', image: './app/images/jarda.jpg'}
-    ]
+    tag: 'AllDataHack2015'
 };
 
 export default Social;

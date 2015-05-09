@@ -11,9 +11,16 @@ export default class SocialFeed extends Component {
         var photos = this.props.photos;
 
         // alternate photos with tweets
-        var items = $.map(tweets, function(v, i) {
-             return [v, photos[i]];
-        }).slice(0, 11);
+        // var items = $.map(tweets, function(v, i) {
+        //      return [v, photos[i]];
+        // }).slice(0, 11);
+
+        var items = [];
+        for (var i = 0; i < 6; i++) {
+            items.push(photos[i] || {}, tweets[i] || {});
+        }
+
+        items = items.slice(0, 11);
 
         return (
             <div className="row socialFeed">
@@ -37,8 +44,7 @@ export default class SocialFeed extends Component {
     }
 
     renderItem(item) {
-        if(!item) return;
-
+        if (!item) return;
         if (item.text) {
             return this.renderTweet(item);
         } else {
