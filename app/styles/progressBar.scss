@@ -17,6 +17,8 @@
     height: 8px;
     border-radius: 4px;
 
+    transition: 1s all;
+
     background: #1e5799; /* Old browsers */
     background: -moz-linear-gradient(left,  #1e5799 0%, #146b8b 0%, #ee5d92 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right top, color-stop(0%,#1e5799), color-stop(0%,#146b8b), color-stop(100%,#ee5d92)); /* Chrome,Safari4+ */

@@ -20,8 +20,14 @@ import { cs } from 'react-intl/dist/locale-data/cs';
 let Index = class Index extends Component {
     displayName: 'Index'
 
-    constructor() {
+    constructor(props) {
         var loc = window.location.href;
+
+        var now = new Date().getTime();
+        var end = props.end.getTime();
+        var start = props.start.getTime();
+
+        var progressVisible = now > start && now < end;
 
         this.state = {
             menu: [
@@ -35,10 +41,39 @@ let Index = class Index extends Component {
 
             signupVisible: loc.search('goodhack') !== -1,
 
-            progressVisible: loc.search('progress') !== -1,
+            progressVisible: progressVisible,
+
+            progress: 0,
 
             locales: this.getLocales()
         };
+    }
+
+    componentDidMount () {
+        window.setInterval(this.updateProgress.bind(this), 2000);
+    }
+
+    updateProgress () {
+        this.setState({
+            progress: this._getProgress()
+        });
+    }
+
+    _getProgress() {
+        var now = new Date().getTime()/1000;
+        var end = this.props.end.getTime()/1000;
+        var start = this.props.start.getTime()/1000;
+        var onePct = (end - start)/100;
+        var pct = 0;
+
+        if (now > end) pct = 100;
+
+        if (now > start && now < end) {
+            var fromStart = now - start;
+            pct = Math.round(fromStart/onePct);
+        }
+
+        return pct;
     }
 
     submitHandler () {
@@ -52,7 +87,6 @@ let Index = class Index extends Component {
             formVisible: true
         });
     }
-
     signupHandler () {
         this.setState({
             formVisible: !this.state.formVisible
@@ -70,7 +104,7 @@ let Index = class Index extends Component {
                     signupVisible={this.state.signupVisible}
                     signupHandler={this.showForm.bind(this)}
                     progressVisible={this.state.progressVisible}
-                    progress={50} />
+                    progress={this.state.progress} />
 
                 <About />
 
@@ -99,6 +133,11 @@ let Index = class Index extends Component {
     currentTimeZoneOffset() {
         return (new Date()).getTimezoneOffset();
     }
+};
+
+Index.defaultProps = {
+    start: new Date(2015, 4, 14, 9),
+    end: new Date(2015, 4, 15, 18)
 };
 
 export default Index;
