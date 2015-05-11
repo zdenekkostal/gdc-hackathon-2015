@@ -23,13 +23,9 @@ let Index = class Index extends Component {
     constructor(props) {
         var loc = window.location.href;
 
-        var now = new Date().getTime();
-        var end = props.end.getTime();
-        var start = props.start.getTime();
-
-        var progressVisible = now > start && now < end;
-
         this.state = {
+            event: '',
+
             menu: [
                 { title: 'Hello', id: 'hello'},
                 { title: 'About', id: 'about'},
@@ -41,26 +37,163 @@ let Index = class Index extends Component {
 
             signupVisible: loc.search('goodhack') !== -1,
 
-            progressVisible: progressVisible,
+            progressVisible: false,
 
             progress: 0,
 
-            locales: this.getLocales()
+            locales: this.getLocales(),
+
+            schedule: {
+                'cs-CZ': [{
+                    day: 'Thursday',
+
+                    events: [{
+                        time: new Date(2015, 4, 14, 9),
+                        description: 'Kick Off (Breakfast)'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 14, 12),
+                        description: 'Lunch'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 14, 15, 30),
+                        description: 'Fun Event'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 14, 18),
+                        description: 'Dinner, Sync with US'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 14, 21),
+                        description: 'Wake up activity'
+                    }]
+                }, {
+                    day: 'Friday',
+
+                    events: [{
+                        time: new Date(2015, 4, 15, 0, 30),
+                        description: 'Night Office Run?'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 15, 8),
+                        description: 'Morning workout'
+                    }, {
+                        time: new Date(2015, 4, 15, 9),
+                        description: 'Breakfast'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 15, 11),
+                        description: 'Fun Event'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 15, 12),
+                        description: 'Lunch'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 15, 17),
+                        description: 'Final'
+                    }, {
+                        time: new Date(2015, 4, 15, 18),
+                        description: 'Send the Video CZ Teams & Food, Sync with US'
+                    }]
+                }],
+                'en-US': [{
+                    day: 'Thursday',
+
+                    events: [{
+                        time: new Date(2015, 4, 14, 9),
+                        description: 'Kick off US (Breakfast), Sync with CZ'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 14, 12),
+                        description: 'Lunch'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 14, 15, 30),
+                        description: 'Fun Event'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 14, 18),
+                        description: 'Dinner'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 14, 21),
+                        description: 'Wake up activity'
+                    }, {
+                        time: new Date(2015, 4, 14, 23),
+                        description: 'Night Office Run?'
+                    }]
+                }, {
+                    day: 'Friday',
+
+                    events: [{
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 15, 8),
+                        description: 'Morning workout'
+                    }, {
+                        time: new Date(2015, 4, 15, 9),
+                        description: 'Breakfast, Sync with CZ'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 15, 11),
+                        description: 'Fun Event'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 15, 12),
+                        description: 'Lunch'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 15, 17),
+                        description: 'Final'
+                    }, {
+                        time: new Date(2015, 4, 15, 18),
+                        description: 'Send the Video US Teams & Food'
+                    }]
+                }]
+            }
         };
     }
 
     componentDidMount () {
+        this.updateProgress();
         window.setInterval(this.updateProgress.bind(this), 2000);
     }
 
     updateProgress () {
+        var now = this.props.now.getTime();
+        var end = this.props.end.getTime();
+        var start = this.props.start.getTime();
+
         this.setState({
+            event: this._getCurrentEvent(),
+            progressVisible: now >= start && now < end,
             progress: this._getProgress()
         });
     }
 
-    _getProgress() {
-        var now = new Date().getTime()/1000;
+    _getCurrentEvent () {
+        var event = '';
+        return event;
+    }
+
+    _getProgress () {
+        var now = this.props.now.getTime()/1000;
         var end = this.props.end.getTime()/1000;
         var start = this.props.start.getTime()/1000;
         var onePct = (end - start)/100;
@@ -68,7 +201,7 @@ let Index = class Index extends Component {
 
         if (now > end) pct = 100;
 
-        if (now > start && now < end) {
+        if (now >= start && now < end) {
             var fromStart = now - start;
             pct = Math.round(fromStart/onePct);
         }
@@ -104,11 +237,14 @@ let Index = class Index extends Component {
                     signupVisible={this.state.signupVisible}
                     signupHandler={this.showForm.bind(this)}
                     progressVisible={this.state.progressVisible}
-                    progress={this.state.progress} />
+                    progress={this.state.progress}
+                    event={this.state.event} />
 
                 <About />
 
-                <Schedule locales={this.state.locales} />
+                <Schedule
+                    schedule={this.state.schedule}
+                    locales={this.state.locales} />
 
                 <Social locales={this.state.locales} />
 
@@ -136,6 +272,7 @@ let Index = class Index extends Component {
 };
 
 Index.defaultProps = {
+    now: new Date(),
     start: new Date(2015, 4, 14, 9),
     end: new Date(2015, 4, 15, 18)
 };

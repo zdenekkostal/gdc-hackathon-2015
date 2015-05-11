@@ -20,12 +20,13 @@ export default class Hello extends Component {
 
         if (this.props.progressVisible) {
             var hacking;
+            var event = this.props.event;
             var progress = this.props.progress;
 
-            if (progress > 0 && progress <= 100){
+            if (event !== ''){
                 var hacking = (
                     <div className="hacking">
-                        Hacking in progress
+                        {event}
                     </div>
                 );
             }
