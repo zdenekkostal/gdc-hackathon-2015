@@ -300,7 +300,7 @@ let Index = class Index extends Component {
 };
 
 Index.defaultProps = {
-    now: new Date(2015, 4, 14, 23),
+    now: new Date(),
     start: new Date(2015, 4, 14, 9),
     end: new Date(2015, 4, 15, 18)
 };
