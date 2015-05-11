@@ -70,8 +70,7 @@ module.exports = function getWebpackConfig() {
             alias: {
                 intl: path.join(__dirname, 'bower_components/intl/Intl.complete'),
                 react: path.join(__dirname, 'node_modules/react/'),
-                jquery: path.join(__dirname, 'bower_components/jquery/dist/jquery'),
-                moment: path.join(__dirname, 'bower_components/moment/moment')
+                jquery: path.join(__dirname, 'bower_components/jquery/dist/jquery')
             }
         },
 

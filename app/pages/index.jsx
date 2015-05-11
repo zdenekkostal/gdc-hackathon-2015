@@ -24,7 +24,7 @@ let Index = class Index extends Component {
         var loc = window.location.href;
 
         this.state = {
-            event: '',
+            currentEvent: '',
 
             menu: [
                 { title: 'Hello', id: 'hello'},
@@ -176,20 +176,48 @@ let Index = class Index extends Component {
     }
 
     updateProgress () {
-        var now = this.props.now.getTime();
-        var end = this.props.end.getTime();
-        var start = this.props.start.getTime();
-
         this.setState({
-            event: this._getCurrentEvent(),
-            progressVisible: now >= start && now < end,
+            currentEvent: this._getCurrentEvent(),
+            progressVisible: this._getProgressVisible(),
             progress: this._getProgress()
         });
     }
 
+    _getProgressVisible () {
+        var now = this.props.now.getTime();
+        var end = this.props.end.getTime();
+        var start = this.props.start.getTime();
+
+        return now >= start && now < end;
+    }
+
     _getCurrentEvent () {
-        var event = '';
-        return event;
+        var name = '';
+
+        var now = this.props.now.getTime();
+        var locale = this.getLocales()[0];
+        var schedule = this.state.schedule[locale];
+
+        for (var i = 0; i < schedule.length; i++) {
+            for (var j = 0; j < schedule[i].events.length; j++) {
+                var event = schedule[i].events[j];
+                var nextEvent = schedule[i].events[j+1];
+                var duration = 1000 * 60 * 60; // event duration is 1 hour
+
+                if (!event.time) continue;
+
+                var eventEnd = event.time.getTime() + duration;
+
+                var afterEventStarted = now >= event.time.getTime();
+                var beforeEventEnd = now <= eventEnd;
+                var afterEvent = now > eventEnd;
+
+                if (afterEvent && nextEvent) name = nextEvent.description;
+                if (afterEventStarted && beforeEventEnd) name = event.description;
+            }
+        }
+
+        return name;
     }
 
     _getProgress () {
@@ -238,7 +266,7 @@ let Index = class Index extends Component {
                     signupHandler={this.showForm.bind(this)}
                     progressVisible={this.state.progressVisible}
                     progress={this.state.progress}
-                    event={this.state.event} />
+                    event={this.state.currentEvent} />
 
                 <About />
 
@@ -272,7 +300,7 @@ let Index = class Index extends Component {
 };
 
 Index.defaultProps = {
-    now: new Date(),
+    now: new Date(2015, 4, 14, 23),
     start: new Date(2015, 4, 14, 9),
     end: new Date(2015, 4, 15, 18)
 };
