@@ -1,7 +1,7 @@
 @import "vars";
 
-html, body, * {
-    font-family: Avenir, sans-serif;
+html, body, *, button {
+    font-family: Avenir, sans-serif !important;
     font-weight: normal;
 }
 
@@ -10,23 +10,24 @@ html, body {
     line-height: 1.8em;
 }
 
-body {
-    background: white url("../images/triangle.svg") top left repeat;
-    background-size: 12%;
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+@media screen and (min-width: 64.063em) {
+    body {
+        background: white url("../images/bg.svg") top center no-repeat;
+    }
 }
 
 // app
-
 #app {
     position: relative;
-
-    // for testing only - REMOVE !!!
-    min-height: 6000px;
     margin: 0 auto;
-
-    // triangles can overflow
-    overflow: hidden;
-    max-width: 1310px;
 }
 
 // components
@@ -70,7 +71,7 @@ body {
     color: white;
     font-size: 24px;
 
-    transition: 1s all;
+    transition: 0.4s all;
 
     &:hover {
         background: #126a8c;

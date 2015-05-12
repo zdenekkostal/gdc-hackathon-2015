@@ -1,8 +1,8 @@
 @import "vars";
 
 .socialFeed {
-    margin-top: 2em;
-    height: 720px;
+    margin: 2em 0;
+    height: 640px;
 
     color: #404040;
 
@@ -46,7 +46,6 @@
         }
 
         .tweet-text {
-//            display: inline-block;
             display: table-cell;
             vertical-align:middle;
             margin: 0 auto;

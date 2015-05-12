@@ -3,6 +3,8 @@
 #schedule {
     @extend %page;
 
+    height: 1260px;
+
     color: #fff;
 
     h2 {
@@ -13,11 +15,16 @@
     h3 {
         margin-top: 3em;
         text-transform: uppercase;
+        font-weight: bold;
     }
 
     .day-time {
         padding-right: 80px;
         line-height: 2.5em;
+    }
+
+    .event-desc {
+        font-weight: bold;
     }
 
     .locale-switch {

@@ -15,12 +15,25 @@ export default class SocialFeed extends Component {
         //      return [v, photos[i]];
         // }).slice(0, 11);
 
-        var items = [];
-        for (var i = 0; i < 6; i++) {
-            items.push(photos[i] || {}, tweets[i] || {});
-        }
+        // var items = [];
+        // for (var i = 0; i < 6; i++) {
+        //     items.push(photos[i] || {}, tweets[i] || {});
+        // }
 
-        items = items.slice(0, 11);
+        var items = [];
+        items.push(
+            photos[1] || {},
+                tweets[1] || {},
+            photos[2] || {},
+            photos[3] || {},
+                tweets[2] || {},
+            photos[4] || {},
+                tweets[3] || {},
+                tweets[4] || {},
+            photos[5] || {},
+                tweets[5] || {},
+            photos[6] || {}
+        );
 
         return (
             <div className="row socialFeed">

@@ -9,8 +9,6 @@ import Social from '../components/social';
 import Projects from '../components/projects';
 import Awards from '../components/awards';
 
-import Triangles from '../components/triangles';
-
 // TODO: fix this shit
 import ReactIntl from 'react-intl';
 window.ReactIntl = ReactIntl;
@@ -258,8 +256,6 @@ let Index = class Index extends Component {
         return (
             <div>
                 <Menu items={this.state.menu} />
-
-                <Triangles />
 
                 <Hello
                     signupVisible={this.state.signupVisible}

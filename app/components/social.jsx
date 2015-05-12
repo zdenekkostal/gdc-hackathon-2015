@@ -47,6 +47,11 @@ let Social = class Social extends Component {
                     '<a href="$1" target="_blank" target="_blank">$1</a>'
                 );
 
+                item.text = item.text.replace(
+                    /#([^\s]+)/g,
+                    '<a href="https://twitter.com/search?q=$1&src=typd" target="_blank" target="_blank">#$1</a>'
+                );
+
                 return {
                     url:  base + item.user.screen_name + '/status/' + item.id_str,
                     text: item.text,
