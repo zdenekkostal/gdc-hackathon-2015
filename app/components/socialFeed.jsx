@@ -22,17 +22,17 @@ export default class SocialFeed extends Component {
 
         var items = [];
         items.push(
+            photos[0] || {},
+                tweets[0] || {},
             photos[1] || {},
-                tweets[1] || {},
             photos[2] || {},
+                tweets[1] || {},
             photos[3] || {},
                 tweets[2] || {},
-            photos[4] || {},
                 tweets[3] || {},
+            photos[4] || {},
                 tweets[4] || {},
-            photos[5] || {},
-                tweets[5] || {},
-            photos[6] || {}
+            photos[5] || {}
         );
 
         return (
