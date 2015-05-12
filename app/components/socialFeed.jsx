@@ -55,7 +55,7 @@ export default class SocialFeed extends Component {
     renderTweet(tweet) {
         return (
             <div className="columns small-6 medium-4 large-3 tweet">
-                <p className="tweet-text">{tweet.text}</p>
+                <p className="tweet-text" dangerouslySetInnerHTML={{__html: tweet.text}}></p>
 
                 <div className="tweet-meta row">
                     <div className="columns small-2">
