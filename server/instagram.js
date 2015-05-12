@@ -1,7 +1,7 @@
 var httpRequest = require('request');
 var fs = require('fs');
 
-var instagramAPI = 'https://api.instagram.com/v1/tags/gooddata/media/recent/?access_token=2433696.ab103e5.83f950f1a3a94f5b8bb2c3145011cafa';
+var instagramAPI = 'https://api.instagram.com/v1/tags/AllDataHack2015/media/recent/?access_token=2433696.ab103e5.83f950f1a3a94f5b8bb2c3145011cafa';
 
 exports.provide = function(request, response) {
     fs.exists('./instagram-cache', function (exists) {
