@@ -15,11 +15,11 @@ var ScrollTo = class ScrollTo extends Component {
     }
 
     scrollTo(id) {
-        var body = document.body;
+        var doc = document.body;
         var targetElement = document.getElementById(id);
 
         if (targetElement) {
-            this._scrollTo(body, targetElement, this.props.scrollDuration);
+            this._scrollTo(doc, targetElement, this.props.scrollDuration);
         }
     }
 
@@ -45,7 +45,7 @@ var ScrollTo = class ScrollTo extends Component {
             }
 
             var scrollTop = currentScrollTop + increment;
-            scrollElement.scrollTop = scrollTop > elementTop ? elementTop : scrollTop;
+            window.scrollTo(0, scrollTop > elementTop ? elementTop : scrollTop);
 
             if (timeDifference < duration) {
                 this._scrollAnimation = window.requestAnimationFrame(step.bind(this));
