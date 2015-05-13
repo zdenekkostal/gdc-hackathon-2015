@@ -47,27 +47,32 @@ let Index = class Index extends Component {
 
                     events: [{
                         time: new Date(2015, 4, 14, 9),
-                        description: 'Kick Off (Breakfast)'
+                        description: 'Kick Off - Breakfast',
+                        location: '(Erlang/Klajdovka)'
                     }, {
                         description: 'Hacking'
                     }, {
                         time: new Date(2015, 4, 14, 12),
-                        description: 'Lunch'
+                        description: 'Lunch',
+                        location: '(Erlang/Klajdovka)'
                     }, {
                         description: 'Hacking'
                     }, {
                         time: new Date(2015, 4, 14, 15, 30),
-                        description: 'Fun Event'
+                        description: 'Fun event: Scooter race',
+                        location: '(New office/Outside)'
                     }, {
                         description: 'Hacking'
                     }, {
                         time: new Date(2015, 4, 14, 18),
-                        description: 'Dinner, Sync with US'
+                        description: 'Dinner, Sync with US',
+                        location: '(Erlang/Klajdovka)'
                     }, {
                         description: 'Hacking'
                     }, {
                         time: new Date(2015, 4, 14, 21),
-                        description: 'Wake up activity'
+                        description: 'Fun Event: Ping Pong tournament',
+                        location: '(Services)'
                     }]
                 }, {
                     day: 'Friday',
@@ -79,28 +84,34 @@ let Index = class Index extends Component {
                         description: 'Hacking'
                     }, {
                         time: new Date(2015, 4, 15, 8),
-                        description: 'Morning workout'
+                        description: 'Morning workout',
+                        location: '(New office/Outside)'
                     }, {
                         time: new Date(2015, 4, 15, 9),
-                        description: 'Breakfast'
+                        description: 'Breakfast',
+                        location: '(Erlang/Klajdovka)'
                     }, {
                         description: 'Hacking'
                     }, {
                         time: new Date(2015, 4, 15, 11),
-                        description: 'Fun Event'
+                        description: 'Fun Event: Lazy tennis',
+                        location: '(New office)'
                     }, {
                         description: 'Hacking'
                     }, {
                         time: new Date(2015, 4, 15, 12),
-                        description: 'Lunch'
+                        description: 'Lunch',
+                        location: '(Erlang/Klajdovka)'
                     }, {
                         description: 'Hacking'
                     }, {
                         time: new Date(2015, 4, 15, 17),
-                        description: 'Final'
+                        description: 'Final',
+                        location: '(Erlang/Klajdovka)'
                     }, {
                         time: new Date(2015, 4, 15, 18),
-                        description: 'Send the Video CZ Teams & Food, Sync with US'
+                        description: 'Send the Video CZ Teams & Food, Sync with US',
+                        location: '(Erlang/Klajdovka)'
                     }]
                 }],
                 'en-US': [{
@@ -191,6 +202,7 @@ let Index = class Index extends Component {
 
     _getCurrentEvent () {
         var name = '';
+        var loc = '';
 
         var now = this.props.now.getTime();
         var locale = this.getLocales()[0];
@@ -210,10 +222,20 @@ let Index = class Index extends Component {
                 var beforeEventEnd = now <= eventEnd;
                 var afterEvent = now > eventEnd;
 
-                if (afterEvent && nextEvent) name = nextEvent.description;
-                if (afterEventStarted && beforeEventEnd) name = event.description;
+                if (afterEvent && nextEvent) {
+                    loc = nextEvent.location ? nextEvent.location : '';
+                    name = nextEvent.description;
+                }
+
+                if (afterEventStarted && beforeEventEnd) {
+                    loc = event.location ? event.location : '';
+                    name = event.description;
+                }
+
             }
         }
+
+        name += ' ' + loc;
 
         return name;
     }

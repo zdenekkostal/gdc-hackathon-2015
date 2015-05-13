@@ -66,7 +66,7 @@ let Schedule = class Schedule extends Component {
         return (
             <tr>
                 <td className="day-time">{event.time && <FormattedTime value={event.time} units="hour" hour="numeric" minute="numeric" locales={this.state.locale} />}</td>
-                <td className="event-desc">{event.description}</td>
+                <td className="event-desc">{event.description} <span className="event-location">{event.location}</span></td>
             </tr>
         );
     }
