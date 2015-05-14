@@ -19,16 +19,18 @@
     }
 
     .day-time {
-        padding-right: 80px;
+        padding-right: 30px;
         line-height: 2.5em;
     }
 
     .event-desc {
+        padding-left: 30px;
         font-weight: bold;
     }
 
     .event-location {
         opacity: .5;
+        white-space: nowrap;
     }
 
     .locale-switch {

@@ -63,10 +63,12 @@ let Schedule = class Schedule extends Component {
     }
 
     renderEvent(event) {
+        var clazz = event.time ? 'event-desc' : 'event-desc color-green';
         return (
             <tr>
                 <td className="day-time">{event.time && <FormattedTime value={event.time} units="hour" hour="numeric" minute="numeric" locales={this.state.locale} />}</td>
-                <td className="event-desc">{event.description} <span className="event-location">{event.location}</span></td>
+                <td><span className="event-location">{event.location}</span></td>
+                <td className={clazz}>{event.description}</td>
             </tr>
         );
     }
