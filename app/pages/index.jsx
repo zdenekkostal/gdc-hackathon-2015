@@ -65,7 +65,13 @@ let Index = class Index extends Component {
                         description: 'Hacking'
                     }, {
                         time: new Date(2015, 4, 14, 18),
-                        description: 'Dinner, Sync with US',
+                        description: 'Dinner',
+                        location: '(Erlang/Klajdovka)'
+                    }, {
+                        description: 'Hacking'
+                    }, {
+                        time: new Date(2015, 4, 14, 20),
+                        description: 'Sync with US',
                         location: '(Erlang/Klajdovka)'
                     }, {
                         description: 'Hacking'
@@ -118,7 +124,7 @@ let Index = class Index extends Component {
                     day: 'Thursday',
 
                     events: [{
-                        time: new Date(2015, 4, 14, 9),
+                        time: new Date(2015, 4, 14, 10),
                         description: 'Kick off US (Breakfast), Sync with CZ'
                     }, {
                         description: 'Hacking'
