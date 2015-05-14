@@ -119,6 +119,13 @@ let Index = class Index extends Component {
                         description: 'Send the Video CZ Teams & Food, Sync with US',
                         location: '(Erlang/Klajdovka)'
                     }]
+                }, {
+                    day: 'Monday',
+                    events: [{
+                        time: new Date(2015, 4, 18, 17, 30),
+                        description: 'All Data Hackathon - final ceremony',
+                        location: '(Erlang/Klajdovka)'
+                    }]
                 }],
                 'en-US': [{
                     day: 'Thursday',
@@ -179,6 +186,12 @@ let Index = class Index extends Component {
                     }, {
                         time: new Date(2015, 4, 15, 18),
                         description: 'Send the Video US Teams & Food'
+                    }]
+                }, {
+                    day: 'Monday',
+                    events: [{
+                        time: new Date(2015, 4, 18, 8, 30),
+                        description: 'All Data Hackathon - final ceremony'
                     }]
                 }]
             }
