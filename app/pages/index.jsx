@@ -33,7 +33,8 @@ let Index = class Index extends Component {
                 { title: 'Awards', id: 'awards'}
             ],
 
-            signupVisible: loc.search('goodhack') !== -1,
+            // signupVisible: loc.search('goodhack') !== -1,
+            signupVisible: false,
 
             progressVisible: false,
 
