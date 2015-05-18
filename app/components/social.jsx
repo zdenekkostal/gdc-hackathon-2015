@@ -84,7 +84,7 @@ let Social = class Social extends Component {
 
                 <div className="row">
                     <div className="columns text-right">
-                        We will also be updating our <a href="https://plus.google.com/u/0/104029022504534058490/posts" target="_blank" className="color-pink">Google+ Event</a><br /> page with photos from the event.
+                        We will also be updating our <a href="https://plus.google.com/u/0/events/c97d89qhsb67hmi8jnmn3qoo6eg?authkey=CPavlrKlmbXVcw" target="_blank" className="color-pink">Google+ Event</a><br /> page with photos from the event.
                     </div>
                 </div>
             </div>
