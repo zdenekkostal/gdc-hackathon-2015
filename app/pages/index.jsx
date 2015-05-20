@@ -33,6 +33,8 @@ let Index = class Index extends Component {
                 { title: 'Awards', id: 'awards'}
             ],
 
+            videoVisible: loc.search('goodhack') !== -1,
+
             // signupVisible: loc.search('goodhack') !== -1,
             signupVisible: false,
 
@@ -315,8 +317,7 @@ let Index = class Index extends Component {
                 <Social locales={this.state.locales} />
 
                 <Projects
-                    signupVisible={this.state.signupVisible}
-                    formVisible={this.state.formVisible}
+                    videoVisible={this.state.videoVisible}
                     signupHandler={this.signupHandler.bind(this)}
                     submitHandler={this.submitHandler.bind(this)} />
                 <Awards />

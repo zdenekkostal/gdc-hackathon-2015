@@ -12,13 +12,9 @@ export default class Awards extends Component {
 
                         <h2>Awards</h2>
 
-                        <p>Every team that wants to compete for the LEGO BEAR <strong>has to record a 60 second video</strong> that introduces the project. Please send a link of the video including a short description of the team to <a href="mailto:hackathon@gooddata.com" className="color-green">hackathon@gooddata.com</a>.</p>
+                        <p>The jury chose three finalists during the weekend and the winning team was announced <strong>on Monday, 18th May</strong> on the <strong>CZ – US All Hands Ceremony.</strong> The&nbsp;winning team was also rewarded with special hackathon polo shirts.</p>
 
-                        <p>Deadline for delivering the video recording is <strong>Friday 6pm</strong> (both PST and CET).</p>
-
-                        <p>During the weekend the jury will be looking over your submitted projects and watching your videos, thinking hard who will be this year's winner.</p>
-
-                        <p>The lucky winning team will be announced on Monday, May 18th during the<br />CZ–US All Hands Ceremony.</p>
+                        <p>This year‘s holder of the LEGO BEAR trophy is the <strong>(F)BI Geographical Data Visualization</strong> project created by <strong>Zdeněk Svoboda, Tomas Korčák and Petr Cvengroš</strong>.</p>
 
                         <img src={bear} />
                     </div>
