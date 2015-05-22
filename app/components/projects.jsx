@@ -60,11 +60,6 @@ let Projects = class Projects extends Component {
                 team: "MSC, MKU, JDE, MGE, MPA",
                 video: "https://drive.google.com/open?id=0ByuGNVLP0RD2bm94WDBtYnIxdVE&authuser=0"
             },{
-                name: "GREATEST and LEAST functions in MAQL",
-                origin: "CZ",
-                team: "VRY",
-                video: "https://drive.google.com/open?id=0ByuGNVLP0RD2Mk1UUWlDeWVpMjA&authuser=0"
-            },{
                 name: "GoodData running in Docker containers",
                 origin: "CZ",
                 team: "DK, SCE, JHR",
