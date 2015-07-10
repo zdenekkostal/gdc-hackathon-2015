@@ -1,9 +1,23 @@
 import { Component } from 'react';
 import ScrollTo from './scrollTo';
 import ProgressBar from './progressBar';
+import magnificPopup from 'magnificPopup';
+import magnificPopupCss from 'magnificPopupCss';
 
 export default class Hello extends Component {
     displayName: 'Hello'
+
+    componentDidMount(){
+        $('.popup-youtube').magnificPopup({
+        	disableOn: 700,
+        	type: 'iframe',
+        	mainClass: 'mfp-fade',
+        	removalDelay: 160,
+        	preloader: false,
+
+        	fixedContentPos: false
+        });
+    }
 
     render() {
         var extra;
@@ -55,6 +69,11 @@ export default class Hello extends Component {
                     <br className="show-for-small" /> • <span className="color-grey">#AllDataHack2015</span>
 
                 {extra}
+
+                <a className="popup-youtube video-video" href="https://www.youtube.com/watch?v=ufjzb2Q8jSc">
+                    <div className="video-play"></div>
+                    <div className="video-text">Play video</div>
+                </a>
             </div>
         );
     }
