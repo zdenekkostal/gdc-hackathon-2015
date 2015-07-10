@@ -6,6 +6,8 @@ export default class About extends Component {
     displayName: 'About'
 
     constructor () {
+        super();
+
         this.state = {
             jury: [
                 {name: 'Jirka Tobolka', image: 'jirka'},

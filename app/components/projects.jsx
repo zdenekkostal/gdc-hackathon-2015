@@ -4,6 +4,8 @@ let Projects = class Projects extends Component {
     displayName: 'Projects'
 
     constructor() {
+        super();
+
         this.state = {
             projects: [
                 {

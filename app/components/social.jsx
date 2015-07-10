@@ -6,6 +6,8 @@ let Social = class Social extends Component {
     displayName: 'Social'
 
     constructor (props) {
+        super();
+
         this.state = {
             tweets: [],
             photos: [],

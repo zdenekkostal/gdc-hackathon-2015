@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 
+process.env.UV_THREADPOOL_SIZE = 100;
+
 module.exports = function getWebpackConfig() {
     return {
         entry: {
@@ -11,6 +13,10 @@ module.exports = function getWebpackConfig() {
 
         module: {
             loaders: [
+                {
+                    test: /react-intl/,
+                    loader: 'expose?ReactIntl'
+                },
                 {
                     test: /jquery/,
                     loader: 'expose?jQuery'
