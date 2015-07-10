@@ -3,6 +3,7 @@ var path = require('path');
 var webpack = require('webpack');
 var getWebpackConfig = require('./webpack.config.js');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var uglifyOptions = {
     mangle: true,
@@ -27,6 +28,14 @@ var buildConfig = _.assign(getWebpackConfig(), {
     }
 });
 
+buildConfig.module.loaders.filter(function(definition) {
+    return definition.loader.indexOf('!css') !== -1;
+}).forEach(function(loaderDefinition) {
+    var loader = loaderDefinition.loader.replace('style!', '');
+
+    loaderDefinition.loader = ExtractTextPlugin.extract('style', loader);
+});
+
 buildConfig.plugins = buildConfig.plugins.concat(
     new webpack.DefinePlugin({
         'process.env': {
@@ -34,6 +43,8 @@ buildConfig.plugins = buildConfig.plugins.concat(
             'NODE_ENV': JSON.stringify('production')
         }
     }),
+
+    new ExtractTextPlugin('[name].[hash].css'),
 
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(uglifyOptions),
