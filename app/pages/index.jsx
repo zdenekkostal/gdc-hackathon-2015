@@ -9,9 +9,7 @@ import Social from '../components/social';
 import Projects from '../components/projects';
 import Awards from '../components/awards';
 
-// TODO: fix this shit
 import ReactIntl from 'react-intl';
-window.ReactIntl = ReactIntl;
 
 import { cs } from 'react-intl/dist/locale-data/cs';
 
@@ -19,6 +17,8 @@ let Index = class Index extends Component {
     displayName: 'Index'
 
     constructor(props) {
+        super();
+
         var loc = window.location.href;
 
         this.state = {

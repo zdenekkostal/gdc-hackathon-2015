@@ -4,7 +4,6 @@ var webpack = require('webpack');
 var getWebpackConfig = require('./webpack.config.js');
 
 var devConfig = _.assign(getWebpackConfig(), {
-    devtool: 'eval',
 
     output: {
         path: path.join(__dirname, '/app/'),

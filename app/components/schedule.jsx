@@ -5,6 +5,8 @@ let Schedule = class Schedule extends Component {
     displayName: 'Schedule'
 
     constructor (props) {
+        super();
+
         this.state = {
             locale: props.locales[0]
         };
